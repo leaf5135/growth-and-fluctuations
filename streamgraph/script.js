@@ -13,7 +13,7 @@ const svg = d3.select("#streamgraph")
         `translate(${margin.left}, ${margin.top})`);
 
 // Load data from csv
-d3.csv("streamgraph/gdp.csv", function(d) {
+d3.csv("streamgraph/data.csv", function(d) {
     return {
         // Parse data
         "Years": d3.timeParse("%Y")(d.Years),
@@ -65,7 +65,7 @@ d3.csv("streamgraph/gdp.csv", function(d) {
         .attr("dy", "1em")
         .attr("font-size", 20)
         .style("text-anchor", "middle")
-        .text("Relative GDP (USD)")
+        .text("Relative GDP")
         .style("fill", "white");
 
     // Color palette
