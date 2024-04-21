@@ -1,4 +1,3 @@
-
 // Set up the SVG container
 const margin = {top: 20, right: 30, bottom: 50, left: 150},
     width = 1000 - margin.left - margin.right,
@@ -116,7 +115,7 @@ d3.csv("streamgraph/data.csv", function(d) {
         const value = dateDifference[grp];
         tooltip.text(null);
         tooltip.append("tspan")
-            .text(`${grp}: $${value.toLocaleString()}`)
+            .text(`${grp}: $${value.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`)
             .attr("font-size", 18);
         tooltip.append("tspan")
             .text(`${year}`)
