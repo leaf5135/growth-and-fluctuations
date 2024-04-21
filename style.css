@@ -78,3 +78,8 @@ body, html {
     margin: auto;
     display: block;
 }
+
+#scatterplot {
+    margin: 0 auto;
+    text-align: center;
+}
