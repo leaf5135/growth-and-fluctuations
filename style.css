@@ -73,3 +73,8 @@ body, html {
     margin: 0 auto;
     text-align: center;
 }
+
+#world-map {
+    margin: auto;
+    display: block;
+}
