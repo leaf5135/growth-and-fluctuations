@@ -58,18 +58,9 @@ d3.csv("bar-div/data.csv")
         .cells(8)
         .orient("vertical")
         .scale(colorScale)
-        .labelFormat(d3.format(".2f"))
-        .ascending(true);
-
-    // Add title to legend
-    svg.select(".legendSequential")
-        .append("text")
-        .attr("x", 0)
-        .attr("y", -20)
-        .attr("text-anchor", "start")
-        .style("font-size", "16px")
-        .style("fill", "white")
-        .text("Rate");
+        .labelFormat(d3.format(".0%"))
+        .ascending(true)
+        .title("Inflation Rate (%)");
 
     svg.select(".legendSequential")
         .call(legendSequential);
