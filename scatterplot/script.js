@@ -69,11 +69,12 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
         .append("circle")
         .attr("cx", d => xScale(d.unemployment))
         .attr("cy", d => yScale(d.inflation))
+        .attr("fill", "green")
         .attr("r", 25)
-        .attr("fill", "#8cff79")
         .transition()
         .delay((d, i) => i * 10)
         .duration(500)
+        .attr("fill", "#8cff79")
         .attr("r", 5);
 
     // Add mouse events for tooltip
