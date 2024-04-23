@@ -52,20 +52,20 @@ Promise.all([
 
     let mouseMove = function(event, d) {
         tooltip.html(`<strong>Country:</strong> ${name_data.get(d.id)}<br><strong>GDP per capita:</strong> $${gdp_data.get(d.id)}<br><strong>Population:</strong> ${pop_data.get(d.id).toLocaleString()}`)
-            .style("left", (event.pageX - 100) + "px")
-            .style("top", (event.pageY - 100) + "px");
+            .style("left", (event.pageX) + "px")
+            .style("top", (event.pageY) + "px");
     };
 
     let mouseOver = function(d) {
         d3.selectAll(".Country")
         .transition()
-        .duration(1000)
+        .duration(500)
         .style("opacity", .3);
         d3.select(this)
         .transition()
-        .duration(1000)
+        .duration(500)
         .style("opacity", 1)
-        tooltip.transition().style("opacity", 1).duration(1000);
+        tooltip.transition().style("opacity", 1).duration(500);
     };
 
     let mouseLeave = function(d) {
