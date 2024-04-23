@@ -33,16 +33,20 @@ d3.csv("bar-div/data.csv")
         .enter()
         .append("rect")
         .attr("x", d => xScale(d.Years))
+        .attr("y", d => yScale(0))
+        .attr("width", xScale.bandwidth())
+        .attr("height", 0)
+        .attr("fill", d => colorScale(parseFloat(d['Average inflation rate (%)'])))
+        .on("mouseover", showTooltip)
+        .on("mousemove", (event, d) => updateTooltip(event, d))
+        .on("mouseleave", hideTooltip)
+        .transition()
+        .duration(1000)
         .attr("y", d => {
             const value = parseFloat(d['Average inflation rate (%)']);
             return value >= 0 ? yScale(value) : yScale(0);
         })
-        .attr("width", xScale.bandwidth())
-        .attr("height", d => Math.abs(yScale(parseFloat(d['Average inflation rate (%)'])) - yScale(0)))
-        .attr("fill", d => colorScale(parseFloat(d['Average inflation rate (%)'])))
-        .on("mouseover", showTooltip)
-        .on("mousemove", (event, d) => updateTooltip(event, d))
-        .on("mouseleave", hideTooltip);
+        .attr("height", d => Math.abs(yScale(parseFloat(d['Average inflation rate (%)'])) - yScale(0)));
 
     // Tooltip
     const tooltip = d3.select(".tooltip");
