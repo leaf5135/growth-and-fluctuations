@@ -110,7 +110,7 @@ d3.csv("bar-div/data.csv")
         .attr("y", height + margin.bottom - 25)
         .attr("text-anchor", "middle")
         .text("Year")
-        .style("font-size", "20px")
+        .style("font-size", "18px")
         .style("fill", "white");
 
     svg.append("text")
@@ -120,7 +120,7 @@ d3.csv("bar-div/data.csv")
         .attr("text-anchor", "middle")
         .attr("transform", "rotate(-90)")
         .text("Inflation Rate (%)")
-        .style("font-size", "20px")
+        .style("font-size", "18px")
         .style("fill", "white");
 
     // Tooltip functions

@@ -144,7 +144,7 @@ d3.csv("multiline/data.csv").then(data => {
         .attr("transform", `translate(${chartWidth / 2}, ${chartHeight + margin.top})`)
         .style("text-anchor", "middle")
         .text("Year")
-        .style("font-size", "20px")
+        .style("font-size", "18px")
         .style("fill", "white");
 
     chart.append("text")
@@ -154,7 +154,7 @@ d3.csv("multiline/data.csv").then(data => {
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .text("Amount ($)")
-        .style("font-size", "20px")
+        .style("font-size", "18px")
         .style("fill", "white");
 
     // Add legend

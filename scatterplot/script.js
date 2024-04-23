@@ -48,7 +48,7 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
         .attr("text-anchor", "middle")
         .attr("transform", `translate(${width / 2}, ${height - 100})`)
         .text("Unemployment Rate (%)")
-        .style("font-size", "24px")
+        .style("font-size", "18px")
         .style("fill", "white");
 
     svg.append("text")
@@ -56,7 +56,7 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
         .attr("text-anchor", "middle")
         .attr("transform", `translate(${margin.left / 2}, ${height / 2 - 50}) rotate(-90)`)
         .text("Average Inflation Rate (%)")
-        .style("font-size", "24px")
+        .style("font-size", "18px")
         .style("fill", "white");
 
     // Select the tooltip element
@@ -72,7 +72,7 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
         .attr("r", 25)
         .attr("fill", "#8cff79")
         .transition()
-        .delay((d, i) => i * 25)
+        .delay((d, i) => i * 10)
         .duration(500)
         .attr("r", 5);
 

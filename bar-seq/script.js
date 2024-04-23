@@ -31,7 +31,6 @@ svg.append("text")
   .style("text-anchor", "middle")
   .style("font-size", "18px")
   .style("fill", "white")
-  .style("font-weight", "bold")
   .text("Value (USD)");
 
 // Tooltip functions

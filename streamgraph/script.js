@@ -43,7 +43,7 @@ d3.csv("streamgraph/data.csv", function(d) {
     // Add x axis label
     svg.append("text")
         .attr("text-anchor", "end")
-        .attr("font-size", 20)
+        .attr("font-size", 18)
         .attr("x", width/2)
         .attr("y", height - margin.top - margin.bottom + 40)
         .text("Year")
@@ -62,7 +62,7 @@ d3.csv("streamgraph/data.csv", function(d) {
         .attr("y", 0 - margin.left)
         .attr("x", 0 - (height / 2) + margin.top)
         .attr("dy", "1em")
-        .attr("font-size", 20)
+        .attr("font-size", 18)
         .style("text-anchor", "middle")
         .text("Relative GDP")
         .style("fill", "white");
