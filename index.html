@@ -25,21 +25,18 @@
 <script type="module" src="scatterplot/script.js"></script>
 </head>
 <body>
+<div class="tooltip"></div>
 
  <!-- Navbar (sit on top) -->
-<div class="w3-top w3-black">
-    <div class="w3-bar" id="myNavbar">
-      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-        <i class="fa fa-bars"></i>
-      </a>
-      <a href="#home" class="w3-bar-item w3-button">HOME</a>
-    </div>
-    <!-- Navbar on small screens -->
-    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium">
-      <a href="#home" class="w3-bar-item w3-button" onclick="toggleFunction()">HOME</a>
-    </div>
+ <div class="w3-top w3-black">
+  <div class="w3-bar" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button">HOME</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small">ABOUT</a>
+    <a href="#gdp" class="w3-bar-item w3-button w3-hide-small">GDP</a>
+    <a href="#import/export" class="w3-bar-item w3-button w3-hide-small">IMPORT/EXPORT</a>
+    <a href="#indicators" class="w3-bar-item w3-button w3-hide-small">INDICATORS</a>
   </div>
-
+</div>
 
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
@@ -57,8 +54,8 @@
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
-    <h3 class="w3-center">by Andrew Diep</h3>
-    <p class="w3-center"><em>About the project</em></p>
+    <h1 class="w3-center">BY ANDREW DIEP</h1>
+    <h3 class="w3-center"><em>About the project</em></h3>
     <p></p>
     <div>
       <!-- Hide this text on small devices -->
@@ -68,50 +65,52 @@
     </div>
 </div>
 
-<div class="tooltip"></div>
+<div class="w3-content w3-container w3-padding-64" id="gdp">
+    <h1 class="w3-center">ANALYZING THE GROSS DOMESTIC PRODUCT (GDP)</h1>
+</div>
 
 <br><br><br><br><br><br>
-
 <h2 style="text-align: center;">Average GDP per Capita by Country (1970-2017)</h2>
 <svg id="world-map" width="1000" height="1200"></svg>
-
 <br><br><br><br><br><br>
-
 <h2 style="text-align: center;">U.S. GDP Components (1970 - 2020)</h2>
 <div id="streamgraph"></div>
 
-<br><br><br><br><br><br>
 
+<div class="w3-content w3-container w3-padding-64" id="import/export">
+    <h1 class="w3-center">TRACKING IMPORTS AND EXPORTS</h1>
+</div>
+
+<br><br><br><br><br><br>
 <h2 style="text-align: center;">U.S. Imports and Exports (2000 - 2021)</h2>
 <div id="multiline"></div>
-
 <br><br><br><br><br><br>
-
 <h2 style="text-align: center;">Comparison of U.S. Goods Imports and Exports (1999-2021)</h2>
 <div style="text-align: center;" id="year-dropdown"></div>
 <div id="bar-seq"></div>
 
-<br><br><br><br><br><br>
 
+<div class="w3-content w3-container w3-padding-64" id="indicators">
+    <h1 class="w3-center">ASSESSING ECONOMIC INDICATORS</h1>
+</div>
+
+<br><br><br><br><br><br>
 <h2 style="text-align: center;">U.S. Inflation Rate (1914 - 2022)</h2>
 <div id="bar-div"></div>
-
 <br><br><br><br><br><br>
-
 <h2 style="text-align: center;">U.S. Minimum Wage (1939 - 2023)</h2>
 <div id="line"></div>
-
 <br><br><br><br><br><br>
-
 <h2 style="text-align: center;">U.S. Unemployment vs Inflation Rate (1947 - 2021)</h2>
 <button id="toggleCurve">Toggle Curve</button>
 <div id="scatterplot"></div>
 
-<br><br><br><br><br><br>
-
 <!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacityZ">
-  <a href="#home" class="w3-button w3-black"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+<footer class="w3-center w3-black w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-github w3-hover-opacity"></i>
+  </div>
 </footer>
 
 </body>
