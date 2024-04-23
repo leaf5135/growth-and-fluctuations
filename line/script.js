@@ -41,7 +41,15 @@ d3.csv("line/data.csv").then(data => {
         .attr("fill", "none")
         .attr("stroke", "#8cff79")
         .attr("stroke-width", 2)
-        .attr("d", lineMinimumWage);
+        .attr("d", lineMinimumWage)
+        .transition()
+        .duration(1000)
+        .attrTween("stroke-dasharray", function() {
+            const length = this.getTotalLength();
+            return function(t) {
+                return (d3.interpolateString("0," + length, length + "," + length))(t);
+            };
+        });
 
     chart.selectAll("circle.MinimumWage")
         .data(data)
@@ -51,18 +59,21 @@ d3.csv("line/data.csv").then(data => {
         .attr("class", "MinimumWage")
         .attr("cx", d => xScale(d.Year))
         .attr("cy", d => yScale(d.MinimumWage))
-        .attr("r", 5)
         .attr("fill", "#8cff79")
         .attr("stroke", "white")
         .attr("stroke-width", 1)
         .on("mouseover", handleMouseOver)
         .on("mousemove", handleMouseMove)
-        .on("mouseout", handleMouseOut);
+        .on("mouseout", handleMouseOut)
+        .transition()
+        .delay((d, i) => i * 50)
+        .duration(1000)
+        .attr("r", 5);
 
     const tooltip = d3.select(".tooltip");
 
     function handleMouseOver(event, d) {
-        tooltip.style("opacity", 1);
+        tooltip.transition().style("opacity", 1);
     }
 
     function handleMouseMove(event, d) {
@@ -74,7 +85,7 @@ d3.csv("line/data.csv").then(data => {
     }
 
     function handleMouseOut(event, d) {
-        tooltip.style("opacity", 0);
+        tooltip.transition().style("opacity", 0);
     }
 
     // Add axes
