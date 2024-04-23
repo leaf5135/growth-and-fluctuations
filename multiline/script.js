@@ -46,7 +46,15 @@ d3.csv("multiline/data.csv").then(data => {
         .attr("fill", "none")
         .attr("stroke", colorbrewer.PuBu[9][5])
         .attr("stroke-width", 2)
-        .attr("d", lineImports);
+        .attr("d", lineImports)
+        .transition()
+        .duration(1000)
+        .attrTween("stroke-dasharray", function() {
+            const length = this.getTotalLength();
+            return function(t) {
+                return (d3.interpolateString("0," + length, length + "," + length))(t);
+            };
+        });
 
     // Add lines for exports
     chart.append("path")
@@ -54,7 +62,15 @@ d3.csv("multiline/data.csv").then(data => {
         .attr("fill", "none")
         .attr("stroke", colorbrewer.OrRd[9][5])
         .attr("stroke-width", 2)
-        .attr("d", lineExports);
+        .attr("d", lineExports)
+        .transition()
+        .duration(1000)
+        .attrTween("stroke-dasharray", function() {
+            const length = this.getTotalLength();
+            return function(t) {
+                return (d3.interpolateString("0," + length, length + "," + length))(t);
+            };
+        });
 
     // Add data points
     chart.selectAll("circle.imports")
@@ -64,13 +80,16 @@ d3.csv("multiline/data.csv").then(data => {
         .attr("class", "imports")
         .attr("cx", d => xScale(d.Year))
         .attr("cy", d => yScale(d.Imports))
-        .attr("r", 5)
         .attr("fill", colorbrewer.PuBu[9][5])
         .attr("stroke", "white")
         .attr("stroke-width", 1)
         .on("mouseover", handleMouseOver)
         .on("mousemove", handleMouseMove)
-        .on("mouseout", handleMouseOut);
+        .on("mouseout", handleMouseOut)
+        .transition()
+        .delay((d, i) => i * 50)
+        .duration(1000)
+        .attr("r", 5);
 
     chart.selectAll("circle.exports")
         .data(data)
@@ -79,18 +98,21 @@ d3.csv("multiline/data.csv").then(data => {
         .attr("class", "exports")
         .attr("cx", d => xScale(d.Year))
         .attr("cy", d => yScale(d.Exports))
-        .attr("r", 5)
         .attr("fill", colorbrewer.OrRd[9][5])
         .attr("stroke", "white")
         .attr("stroke-width", 1)
         .on("mouseover", handleMouseOver)
         .on("mousemove", handleMouseMove)
-        .on("mouseout", handleMouseOut);
+        .on("mouseout", handleMouseOut)
+        .transition()
+        .delay((d, i) => i * 50)
+        .duration(1000)
+        .attr("r", 5);
 
     const tooltip = d3.select(".tooltip");
 
     function handleMouseOver(event, d) {
-        tooltip.style("opacity", 1);
+        tooltip.transition().style("opacity", 1);
     }
 
     function handleMouseMove(event, d) {
@@ -103,7 +125,7 @@ d3.csv("multiline/data.csv").then(data => {
     }
 
     function handleMouseOut(event, d) {
-        tooltip.style("opacity", 0);
+        tooltip.transition().style("opacity", 0);
     }
 
     // Add axes
