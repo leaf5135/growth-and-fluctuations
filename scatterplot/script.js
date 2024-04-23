@@ -1,6 +1,6 @@
 // Set up the SVG canvas dimensions
 const width = 1000;
-const height = 1000;
+const height = 800;
 const margin = { top: 100, right: 100, bottom: 70, left: 100 };
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
@@ -12,7 +12,9 @@ const svg = d3.select("#scatterplot")
     .attr("height", height);
 
 // Load data from CSV file
-d3.csv("scatterplot/data.csv").then(function (data) {
+let data;
+d3.csv("scatterplot/data.csv").then(function (csvData) {
+    data = csvData;
     data.forEach(function (d) {
         d.year = +d["Years"];
         d.unemployment = +d["Unemployment rate (%)"] * 100;
@@ -96,4 +98,57 @@ d3.csv("scatterplot/data.csv").then(function (data) {
             tooltip.style("opacity", 0);
         });
 
+    function drawCurve() {
+        // Find the leftmost and bottommost points in the dataset
+        const leftMostPoint = d3.min(data, d => xScale(d.unemployment));
+        const bottomMostPoint = d3.max(data, d => yScale(d.inflation));
+
+        // Calculate the average x and y coordinates
+        const totalPoints = data.length;
+        let sumX = 0;
+        let sumY = 0;
+        data.forEach(d => {
+            sumX += d.unemployment;
+            sumY += d.inflation;
+        });
+        const avgX = xScale(sumX / totalPoints);
+        const avgY = yScale(sumY / totalPoints);
+
+        // Define the curve data points
+        const curveData = [
+            [leftMostPoint, margin.top],
+            [avgX, avgY],
+            [width - margin.right, bottomMostPoint]
+        ];
+
+        // Generate the curve path using D3 curve function
+        const curveLine = d3.line()
+            .curve(d3.curveNatural)
+            .x(d => d[0])
+            .y(d => d[1]);
+
+        // Append the curve path to the SVG
+        svg.append("path")
+            .datum(curveData)
+            .attr("class", "curve")
+            .attr("d", curveLine)
+            .attr("fill", "none")
+            .attr("stroke", "white")
+            .attr("stroke-width", 3);
+    }
+
+    // Function to remove the curve
+    function removeCurve() {
+        svg.select(".curve").remove();
+    }
+
+    // Event listener for toggle button
+    d3.select("#toggleCurve").on("click", function() {
+        const isCurveDrawn = !svg.select(".curve").empty();
+        if (isCurveDrawn) {
+            removeCurve();
+        } else {
+            drawCurve();
+        }
+    });
 });
