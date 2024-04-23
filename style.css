@@ -83,3 +83,32 @@ body, html {
     margin: 0 auto;
     text-align: center;
 }
+
+#toggleCurve {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+}
+
+#year-dropdown select {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    width: 80px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
