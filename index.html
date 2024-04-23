@@ -114,5 +114,38 @@
   </div>
 </footer>
 
+<script>
+    const scroller = scrollama();
+
+    scroller.setup({
+        step: '.w3-content',
+        offset: 0.5,
+        debug: true, // Enable debug mode for console logs
+    })
+    .onStepEnter(handleStepEnter); // Define the callback function
+
+    // Callback function to handle step enter event
+    function handleStepEnter(response) {
+        const sectionId = response.element.id;
+
+        // Debug console log
+        switch (sectionId) {
+            case 'about':
+                console.log('About section entered');
+                break;
+            case 'gdp':
+                console.log('GDP section entered');
+                break;
+            case 'import/export':
+                console.log('Import/Export section entered');
+                break;
+            case 'indicators':
+                console.log('Indicators section entered');
+                break;
+            default:
+                break;
+        }
+    }
+</script>
 </body>
 </html>
