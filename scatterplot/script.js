@@ -21,7 +21,7 @@ d3.csv("scatterplot/data.csv").then(function (data) {
 
     // Set up scales
     const xScale = d3.scaleLinear()
-        .domain([0, 15])
+        .domain([0, 12])
         .range([margin.left, width - margin.right]);
 
     const yScale = d3.scaleLinear()
@@ -52,7 +52,7 @@ d3.csv("scatterplot/data.csv").then(function (data) {
     svg.append("text")
         .attr("class", "axis-label")
         .attr("text-anchor", "middle")
-        .attr("transform", `translate(${margin.left / 2}, ${height / 2}) rotate(-90)`)
+        .attr("transform", `translate(${margin.left / 2}, ${height / 2 - 50}) rotate(-90)`)
         .text("Average Inflation Rate (%)")
         .style("font-size", "24px")
         .style("fill", "white");
@@ -67,8 +67,15 @@ d3.csv("scatterplot/data.csv").then(function (data) {
         .append("circle")
         .attr("cx", d => xScale(d.unemployment))
         .attr("cy", d => yScale(d.inflation))
-        .attr("r", 5)
+        .attr("r", 25)
         .attr("fill", "#8cff79")
+        .transition()
+        .delay((d, i) => i * 25)
+        .duration(500)
+        .attr("r", 5);
+
+    // Add mouse events for tooltip
+    svg.selectAll("circle")
         .on("mousemove", function (event, d) {
             d3.select(this)
                 .attr("fill", "green")
