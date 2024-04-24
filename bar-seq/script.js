@@ -201,7 +201,8 @@ Promise.all([d3.csv("bar-seq/data-import.csv"), d3.csv("bar-seq/data-export.csv"
             .attr("fill", (d) => importColor(d.import));
 
         // Axes update
-        xAxis.transition().duration(1000).call(d3.axisBottom(xScale).tickFormat(d3.format("$.2s"))).selectAll("text").style("font-size", "12px").select(".domain").remove();
+        xAxis.transition().duration(1000).call(d3.axisBottom(xScale).tickFormat(d3.format("$.2s"))).selectAll("text").style("font-size", "12px");
+        xAxis.select(".domain").remove();
         yAxis.transition().duration(1000).call(d3.axisLeft(yScale)).selectAll("text").style("font-size", "14px");
 
         // Add vertical lines
@@ -212,11 +213,11 @@ Promise.all([d3.csv("bar-seq/data-import.csv"), d3.csv("bar-seq/data-export.csv"
             .enter()
             .append("line")
             .attr("class", "vertical-line")
-            .transition()
-            .duration(1000)
             .attr("x1", (d) => xScale(d))
             .attr("y1", 0)
             .attr("x2", (d) => xScale(d))
+            .transition()
+            .duration(1000)
             .attr("y2", height)
             .style("stroke", "gray")
             .style("stroke-dasharray", "2,2");
