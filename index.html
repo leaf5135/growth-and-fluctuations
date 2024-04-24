@@ -34,7 +34,7 @@
     <a href="#home" class="w3-bar-item w3-button">HOME</a>
     <a href="#about" class="w3-bar-item w3-button w3-hide-small">ABOUT</a>
     <a href="#gdp" class="w3-bar-item w3-button w3-hide-small">GDP</a>
-    <a href="#import/export" class="w3-bar-item w3-button w3-hide-small">IMPORT/EXPORT</a>
+    <a href="#ports" class="w3-bar-item w3-button w3-hide-small">IMPORT/EXPORT</a>
     <a href="#indicators" class="w3-bar-item w3-button w3-hide-small">INDICATORS</a>
   </div>
 </div>
@@ -78,7 +78,7 @@
 <div id="streamgraph"></div>
 
 
-<div class="w3-content w3-container w3-padding-64" id="import/export">
+<div class="w3-content w3-container w3-padding-64" id="ports">
     <h1 class="w3-center">TRACKING IMPORTS AND EXPORTS</h1>
 </div>
 
@@ -115,6 +115,17 @@
 </footer>
 
 <script>
+    // Smooth scrolling for navbar links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
     const scroller = scrollama();
 
     scroller.setup({
@@ -136,7 +147,7 @@
             case 'gdp':
                 console.log('GDP section entered');
                 break;
-            case 'import/export':
+            case 'ports':
                 console.log('Import/Export section entered');
                 break;
             case 'indicators':
