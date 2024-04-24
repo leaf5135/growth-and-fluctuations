@@ -143,12 +143,12 @@ Promise.all([d3.csv("bar-seq/data-import.csv"), d3.csv("bar-seq/data-export.csv"
         svg.select(".import-legend")
             .call(importLegend)
             .selectAll("text")
-            .text((d) => "$" + addCommas(Math.round(d)));
+            .text((d) => d3.format("$.2s")(d));
 
         svg.select(".export-legend")
             .call(exportLegend)
             .selectAll("text")
-            .text((d) => "$" + addCommas(Math.round(d)));
+            .text((d) => d3.format("$.2s")(d));
 
         // Update existing bars
         const bars = svg.selectAll(".bar").data(combinedData);
@@ -201,11 +201,8 @@ Promise.all([d3.csv("bar-seq/data-import.csv"), d3.csv("bar-seq/data-export.csv"
             .attr("fill", (d) => importColor(d.import));
 
         // Axes update
-        const tickFormat = (value) => {
-            return d3.format(".2s")(value).replace("G", "B");
-        };
-        xAxis.transition().duration(1000).call(d3.axisBottom(xScale).tickFormat(tickFormat)).select(".domain").remove();
-        yAxis.transition().duration(1000).call(d3.axisLeft(yScale)).selectAll("text").style("font-size", "16px");
+        xAxis.transition().duration(1000).call(d3.axisBottom(xScale).tickFormat(d3.format("$.2s"))).selectAll("text").style("font-size", "12px").select(".domain").remove();
+        yAxis.transition().duration(1000).call(d3.axisLeft(yScale)).selectAll("text").style("font-size", "14px");
 
         // Add vertical lines
         svg.selectAll(".vertical-line").remove();

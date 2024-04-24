@@ -119,7 +119,8 @@ d3.csv("multiline/data.csv").then(data => {
         const [x, y] = d3.pointer(event);
             tooltip.html(`<strong>Year:</strong> ${d.Year}<br>
                 <strong>Imports:</strong> $${d.Imports.toLocaleString()}<br>
-                <strong>Exports:</strong> $${d.Exports.toLocaleString()}`)
+                <strong>Exports:</strong> $${d.Exports.toLocaleString()}<br>
+                <strong>Trade Balance:</strong> $${(d.Exports - d.Imports).toLocaleString()}`)
             .style("left", (event.pageX) + "px")
             .style("top", (event.pageY) + "px");
     }
@@ -130,14 +131,18 @@ d3.csv("multiline/data.csv").then(data => {
 
     // Add axes
     const xAxis = d3.axisBottom(xScale).tickFormat(d3.format("d"));
-    const yAxis = d3.axisLeft(yScale);
+    const yAxis = d3.axisLeft(yScale).tickFormat(d3.format("$.2s"));
 
     chart.append("g")
         .attr("transform", `translate(0, ${chartHeight})`)
-        .call(xAxis);
+        .call(xAxis)
+        .selectAll("text")
+        .style("font-size", "12px");
 
     chart.append("g")
-        .call(yAxis);
+        .call(yAxis)
+        .selectAll("text")
+        .style("font-size", "12px");
 
     // Add axis labels
     chart.append("text")

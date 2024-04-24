@@ -54,12 +54,13 @@ d3.csv("streamgraph/data.csv", function(d) {
         .domain([-15000000000000, 15000000000000])
         .range([height - 106.66, 50]);
     svg.append("g")
-        .call(d3.axisLeft(y).ticks(10).tickSize(-width).tickFormat(d3.format(",d")));
+        .attr("class", "y-axis")
+        .call(d3.axisLeft(y).ticks(7).tickSize(-width).tickFormat(d3.format("$.2s"))).selectAll("text").attr("font-size", 12);
 
     // Add y axis label
     svg.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 0 - margin.left)
+        .attr("y", 0 - margin.left / 2)
         .attr("x", 0 - (height / 2) + margin.top)
         .attr("dy", "1em")
         .attr("font-size", 18)

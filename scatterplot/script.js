@@ -36,11 +36,15 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
 
     svg.append("g")
         .attr("transform", `translate(0, ${innerHeight})`)
-        .call(xAxis);
+        .call(xAxis)
+        .selectAll("text")
+        .style("font-size", "12px");
 
     svg.append("g")
         .attr("transform", `translate(${margin.left}, 0)`)
-        .call(yAxis);
+        .call(yAxis)
+        .selectAll("text")
+        .style("font-size", "12px");
 
     // Add labels for axes
     svg.append("text")

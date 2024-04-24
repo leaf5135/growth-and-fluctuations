@@ -64,7 +64,7 @@ d3.csv("bar-div/data.csv")
         .scale(colorScale)
         .labelFormat(d3.format(".0%"))
         .ascending(true)
-        .title("Inflation Rate (%)");
+        .title("Rate");
 
     svg.select(".legendSequential")
         .call(legendSequential);
@@ -75,11 +75,15 @@ d3.csv("bar-div/data.csv")
         .attr("transform", `translate(0, ${height})`)
         .call(d3.axisBottom(xScale)
             .tickSize(0)
-            .tickValues(xScale.domain().filter((d, i) => d % 20 === 0 && d >= 1920)));
+            .tickValues(xScale.domain().filter((d, i) => d % 20 === 0 && d >= 1920)))
+        .selectAll("text")
+        .style("font-size", "12px");
 
     svg.append("g")
         .attr("class", "y-axis")
-        .call(d3.axisLeft(yScale).ticks(10).tickFormat(d => d * 100));
+        .call(d3.axisLeft(yScale).ticks(10).tickFormat(d => d * 100 + "%"))
+        .selectAll("text")
+        .style("font-size", "12px");
 
     // Add vertical lines
     const tickValues = yScale.ticks();
