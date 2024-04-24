@@ -41,13 +41,13 @@ d3.csv("streamgraph/data.csv", function(d) {
         .attr("transform", "translate(0, 20)");
 
     // Add x axis label
-    svg.append("text")
-        .attr("text-anchor", "end")
-        .attr("font-size", 18)
-        .attr("x", width/2)
-        .attr("y", height - margin.top - margin.bottom + 40)
-        .text("Year")
-        .style("fill", "white");
+    // svg.append("text")
+    //     .attr("text-anchor", "end")
+    //     .attr("font-size", 18)
+    //     .attr("x", width/2)
+    //     .attr("y", height - margin.top - margin.bottom + 40)
+    //     .text("Year")
+    //     .style("fill", "white");
 
     // Add y axis
     const y = d3.scaleLinear()

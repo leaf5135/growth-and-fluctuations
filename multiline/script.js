@@ -145,22 +145,22 @@ d3.csv("multiline/data.csv").then(data => {
         .style("font-size", "12px");
 
     // Add axis labels
-    chart.append("text")
-        .attr("transform", `translate(${chartWidth / 2}, ${chartHeight + margin.top})`)
-        .style("text-anchor", "middle")
-        .text("Year")
-        .style("font-size", "18px")
-        .style("fill", "white");
+    // chart.append("text")
+    //     .attr("transform", `translate(${chartWidth / 2}, ${chartHeight + margin.top})`)
+    //     .style("text-anchor", "middle")
+    //     .text("Year")
+    //     .style("font-size", "18px")
+    //     .style("fill", "white");
 
-    chart.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 0 - margin.left + 25)
-        .attr("x", 0 - (chartHeight / 2))
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .text("Amount ($)")
-        .style("font-size", "18px")
-        .style("fill", "white");
+    // chart.append("text")
+    //     .attr("transform", "rotate(-90)")
+    //     .attr("y", 0 - margin.left / 2)
+    //     .attr("x", 0 - (chartHeight / 2))
+    //     .attr("dy", "1em")
+    //     .style("text-anchor", "middle")
+    //     .text("Amount ($)")
+    //     .style("font-size", "18px")
+    //     .style("fill", "white");
 
     // Add legend
     var ordinal = d3.scaleOrdinal()
