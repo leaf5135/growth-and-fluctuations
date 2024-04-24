@@ -29,7 +29,7 @@ var legend = d3.legendColor()
     .shapePadding(10)
     .shapeWidth(50)
     .labelFormat(d3.format(".1s"))
-    .title('GDP per capita');
+    .title('GDP per capita ($)');
 
 svg.select(".color-legend")
     .call(legend);

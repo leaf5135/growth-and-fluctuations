@@ -55,7 +55,7 @@ d3.csv("streamgraph/data.csv", function(d) {
         .range([height - 106.66, 50]);
     svg.append("g")
         .attr("class", "y-axis")
-        .call(d3.axisLeft(y).ticks(7).tickSize(-width).tickFormat(d3.format("$.2s"))).selectAll("text").attr("font-size", 12);
+        .call(d3.axisLeft(y).ticks(7).tickSize(-width).tickFormat(d3.format(".2s"))).selectAll("text").attr("font-size", 12);
 
     // Add y axis label
     svg.append("text")
@@ -65,7 +65,7 @@ d3.csv("streamgraph/data.csv", function(d) {
         .attr("dy", "1em")
         .attr("font-size", 18)
         .style("text-anchor", "middle")
-        .text("Relative GDP")
+        .text("Relative GDP ($)")
         .style("fill", "white");
 
     // Color palette
