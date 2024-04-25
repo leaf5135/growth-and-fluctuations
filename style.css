@@ -26,7 +26,6 @@ body, html {
 .bgimg-3 {
     background-image: url('img/ports.jpg');
     height: 50%;
-    background-attachment: fixed;
 }
 
 .bgimg-4 {
