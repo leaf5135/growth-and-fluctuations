@@ -1,9 +1,9 @@
 // Set up the SVG canvas dimensions
 const width = 1000;
 const height = 800;
-const margin = { top: 100, right: 100, bottom: 70, left: 100 };
+const margin = { top: 10, right: 100, bottom: 70, left: 100 };
 const innerWidth = width - margin.left - margin.right;
-const innerHeight = height - margin.top - margin.bottom;
+const innerHeight = height - margin.top - margin.bottom - 90;
 
 // Append the SVG container to the scatterplot div
 const svg = d3.select("#scatterplot")
