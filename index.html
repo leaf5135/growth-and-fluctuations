@@ -4,6 +4,8 @@
 <title>Beta Release</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- CSS -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" id="theme-style">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -34,75 +36,88 @@
     <a href="#home" class="w3-bar-item w3-button">HOME</a>
     <a href="#about" class="w3-bar-item w3-button w3-hide-small">ABOUT</a>
     <a href="#gdp" class="w3-bar-item w3-button w3-hide-small">GDP</a>
-    <a href="#ports" class="w3-bar-item w3-button w3-hide-small">IMPORT/EXPORT</a>
+    <a href="#trade" class="w3-bar-item w3-button w3-hide-small">IMPORT/EXPORT</a>
     <a href="#indicators" class="w3-bar-item w3-button w3-hide-small">INDICATORS</a>
   </div>
 </div>
 
-<!-- First Parallax Image with Logo Text -->
+<!-- Home -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle" style="white-space:nowrap; bottom: 20px;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
-        Growth and Fluctuations
-    </span>
-  </div>
-  <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
-        A Visual Story of the US Economy
-    </span>
-  </div>
-</div>
-
-<!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
-    <h1 class="w3-center">BY ANDREW DIEP</h1>
-    <h3 class="w3-center"><em>About the project</em></h3>
-    <p></p>
-    <div>
-      <!-- Hide this text on small devices -->
-      <div class="m6 w3-hide-small w3-padding-large">
-        <p>Welcome to my final project for data visualization class! In this website, I'm exploring the vast landscape of the US economy through the lens of data visualization. We all know that money plays a crucial role in shaping our world, and recent events such as the tech layoffs during the COVID-19 pandemic and the economic transformations in cities like San Francisco have captured my attention. I'm passionate about understanding how these economic shifts impact not only my life but also my community. Through thorough analysis of economic data and its historical trajectory, I aim to uncover meaningful patterns that can aid me in navigating future changes with greater insight. Given that economic insights are often communicated through visual representations, this project offers an exciting opportunity to deepen my understanding of both economics and data visualization techniques. Join me on this journey as we explore the intricacies of the US economy and its profound influence on our lives.</p>
-      </div>
+    <div class="w3-display-middle" style="white-space:nowrap; bottom: 0%;">
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+            Growth and Fluctuations
+        </span>
+    </div>
+    <div class="w3-display-middle" style="white-space:nowrap; bottom: 15%;">
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+            A Visual Story of the U.S. Economy
+        </span>
+    </div>
+    <div class="w3-display-middle" style="white-space:nowrap; bottom: 60%;">
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+            by Andrew Diep
+        </span>
     </div>
 </div>
 
-<div class="w3-content w3-container w3-padding-64" id="gdp">
-    <h1 class="w3-center">ANALYZING THE GROSS DOMESTIC PRODUCT (GDP)</h1>
+<!-- About -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+    <h2 class="w3-center">What's this project about?</h2>
+    <div class="m6 w3-hide-small w3-padding-large">
+        <p>Welcome to my final project for data visualization class! In this website, I'm exploring the vast landscape of the U.S. economy through the lens of data visualization. We all know that money plays a crucial role in shaping our world, and recent events such as the tech layoffs during the COVID-19 pandemic and the economic transformations in cities like San Francisco have captured my attention. I'm passionate about understanding how these economic shifts impact not only my life but also my community. Through thorough analysis of economic data and its historical trajectory, I aim to uncover meaningful patterns that can aid me in navigating future changes with greater insight. Given that economic insights are often communicated through visual representations, this project offers an exciting opportunity to deepen my understanding of both economics and data visualization techniques. Join me on this journey as we explore the intricacies of the U.S. economy and its profound influence on our lives.</p>
+    </div>
 </div>
 
+<!-- GDP -->
+<div class="bgimg-2 w3-display-container w3-opacity-min" id="gdp">
+    <div class="w3-display-middle" style="white-space:nowrap; bottom: 50%;">
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+            Wonder how much money the U.S. is making?
+        </span>
+    </div>
+</div>
 <br><br><br><br><br><br>
-<h2 style="text-align: center;">Average GDP per Capita by Country (1970-2017)</h2>
+<h3 style="text-align: center;">Average GDP per Capita by Country (1970-2017)</h3>
 <svg id="world-map" width="1000" height="1200"></svg>
 <br><br><br><br><br><br>
-<h2 style="text-align: center;">U.S. GDP Components (1970 - 2020)</h2>
+<h3 style="text-align: center;">U.S. GDP Components (1970 - 2020)</h3>
 <div id="streamgraph"></div>
 
 
-<div class="w3-content w3-container w3-padding-64" id="ports">
-    <h1 class="w3-center">TRACKING IMPORTS AND EXPORTS</h1>
+<!-- Trade -->
+<div class="bgimg-3 w3-display-container w3-opacity-min" id="trade">
+    <div class="w3-display-middle" style="white-space:nowrap; bottom: 50%;">
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+            Want to know the ins and outs of the trade?
+        </span>
+    </div>
 </div>
 
 <br><br><br><br><br><br>
-<h2 style="text-align: center;">U.S. Imports and Exports (2000 - 2021)</h2>
+<h3 style="text-align: center;">U.S. Imports and Exports (2000 - 2021)</h3>
 <div id="multiline"></div>
 <br><br><br><br><br><br>
-<h2 style="text-align: center;">Comparison of U.S. Goods Imports and Exports (1999-2021)</h2>
+<h3 style="text-align: center;">Comparison of U.S. Goods Imports and Exports (1999-2021)</h3>
 <div style="text-align: center;" id="year-dropdown"></div>
 <div id="bar-seq"></div>
 
-
-<div class="w3-content w3-container w3-padding-64" id="indicators">
-    <h1 class="w3-center">ASSESSING ECONOMIC INDICATORS</h1>
+<!-- Indicators -->
+<div class="bgimg-4 w3-display-container w3-opacity-min" id="indicators">
+    <div class="w3-display-middle" style="white-space:nowrap; bottom: 50%;">
+        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+            Curious about whether our economy is getting better or worse?
+        </span>
+    </div>
 </div>
 
 <br><br><br><br><br><br>
-<h2 style="text-align: center;">U.S. Inflation Rate (1914 - 2022)</h2>
+<h3 style="text-align: center;">U.S. Inflation Rate (1914 - 2022)</h3>
 <div id="bar-div"></div>
 <br><br><br><br><br><br>
-<h2 style="text-align: center;">U.S. Minimum Wage (1939 - 2023)</h2>
+<h3 style="text-align: center;">U.S. Minimum Wage (1939 - 2023)</h3>
 <div id="line"></div>
 <br><br><br><br><br><br>
-<h2 style="text-align: center;">U.S. Unemployment vs Inflation Rate (1947 - 2021)</h2>
+<h3 style="text-align: center;">U.S. Unemployment vs Inflation Rate (1947 - 2021)</h3>
 <button id="toggleCurve">Toggle Curve</button>
 <div id="scatterplot"></div>
 

@@ -6,13 +6,36 @@ body, html {
     color: lightgray;
 }
 
-.bgimg-1 {
-    background-image: url('img/cover.jpg');
-    height: 100%;
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.bgimg-1 {
+    background-image: url('img/cover.jpg');
+    height: 100%;
+}
+
+.bgimg-2 {
+    background-image: url('img/gdp.jpg');
+    height: 50%;
+}
+
+.bgimg-3 {
+    background-image: url('img/ports.jpg');
+    height: 50%;
+    background-attachment: fixed;
+}
+
+.bgimg-4 {
+    background-image: url('img/indicators.jpg');
+    height: 50%;
+}
+
+p {
+    font-size: 18px;
 }
 
 .w3-wide {letter-spacing: 10px;}
