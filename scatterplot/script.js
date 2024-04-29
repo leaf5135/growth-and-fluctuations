@@ -81,6 +81,19 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
         .attr("fill", "#8cff79")
         .attr("r", 5);
 
+    // Add a faint line on the y = 0 axis
+    svg.append("line")
+    .attr("x1", margin.left)
+    .attr("y1", yScale(0))
+    .attr("y2", yScale(0))
+    .transition()
+    .duration(1000)
+    .attr("x2", width - margin.right)
+    .attr("stroke", "rgba(255, 255, 255, 0.5)")
+    .attr("stroke-dasharray", "3,3")
+    .attr("stroke-width", 1);
+
+
     // Add mouse events for tooltip
     svg.selectAll("circle")
         .on("mousemove", function (event, d) {
