@@ -90,7 +90,7 @@ d3.csv("line/data.csv").then(data => {
 
     // Add axes
     const xAxis = d3.axisBottom(xScale).tickFormat(d3.format("d"));
-    const yAxis = d3.axisLeft(yScale).tickFormat(d3.format("$.2s"));
+    const yAxis = d3.axisLeft(yScale).tickFormat(d3.format("$.3s"));
 
     chart.append("g")
         .attr("transform", `translate(0, ${chartHeight})`)
