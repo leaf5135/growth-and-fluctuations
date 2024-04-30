@@ -5,6 +5,9 @@ const margin = { top: 50, right: 50, bottom: 100, left: 175 };
 const chartWidth = width - margin.left - margin.right;
 const chartHeight = height - margin.top - margin.bottom;
 
+function build() {
+d3.select("#multiline svg").remove();
+
 const svg = d3.select("#multiline")
     .append("svg")
     .attr("width", width + 200)
@@ -196,3 +199,7 @@ d3.csv("multiline/data.csv").then(data => {
         .style("fill", "white")
         .text("Type");
 });
+}
+
+build();
+document.getElementById("reloadButton").addEventListener("click", build);

@@ -101,7 +101,7 @@ p {
     text-align: center;
 }
 
-#toggleCurve {
+#toggleCurve, #reloadButton {
     display: block;
     margin: 0 auto;
     text-align: center;
@@ -113,6 +113,10 @@ p {
     border-radius: 20px;
     background-color: black;
     color: white;
+}
+
+#reloadButton {
+    float: right;
 }
 
 #year-dropdown select {

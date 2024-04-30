@@ -5,6 +5,9 @@ const margin = { top: 10, right: 100, bottom: 70, left: 100 };
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom - 90;
 
+function build() {
+d3.select("#scatterplot svg").remove();
+
 // Append the SVG container to the scatterplot div
 const svg = d3.select("#scatterplot")
     .append("svg")
@@ -161,6 +164,7 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
     }
 
     // Event listener for toggle button
+    drawCurve(); // Draw the curve by default
     d3.select("#toggleCurve").on("click", function() {
         const isCurveDrawn = !svg.select(".curve").empty();
         if (isCurveDrawn) {
@@ -170,3 +174,7 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
         }
     });
 });
+}
+
+build();
+document.getElementById("reloadButton").addEventListener("click", build);

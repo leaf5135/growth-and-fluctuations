@@ -5,6 +5,9 @@ const margin = { top: 50, right: 50, bottom: 100, left: 100 };
 const chartWidth = width - margin.left - margin.right;
 const chartHeight = height - margin.top - margin.bottom;
 
+function build() {
+d3.select("#line svg").remove();
+
 const svg = d3.select("#line")
     .append("svg")
     .attr("width", width)
@@ -121,3 +124,7 @@ d3.csv("line/data.csv").then(data => {
     //     .style("font-size", "18px")
     //     .style("fill", "white");
 });
+}
+
+build();
+document.getElementById("reloadButton").addEventListener("click", build);

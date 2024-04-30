@@ -3,6 +3,10 @@ const margin = { top: 25, right: 500, bottom: 250, left: 400 };
 const width = 1600 - margin.left - margin.right;
 const height = 800 - margin.top - margin.bottom;
 
+function build() {
+d3.select("#bar-seq svg").remove();
+d3.select("#year-dropdown select").remove();
+
 // Create SVG element
 const svg = d3
   .select("#bar-seq")
@@ -255,3 +259,7 @@ Promise.all([d3.csv("bar-seq/data-import.csv"), d3.csv("bar-seq/data-export.csv"
     }
   })
   .catch(console.error);
+}
+
+build();
+document.getElementById("reloadButton").addEventListener("click", build);

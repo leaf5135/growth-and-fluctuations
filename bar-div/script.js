@@ -2,6 +2,9 @@ const margin = { top: 50, right: 50, bottom: 75, left: 100 };
 const width = 1000 - margin.left - margin.right;
 const height = 600 - margin.top - margin.bottom;
 
+function build() {
+d3.select("#bar-div svg").remove();
+
 // Create SVG container
 const svg = d3.select("#bar-div")
     .append("svg")
@@ -145,3 +148,7 @@ d3.csv("bar-div/data.csv")
         tooltip.transition().duration(250).style("opacity", 0);
     }
 });
+}
+
+build();
+document.getElementById("reloadButton").addEventListener("click", build);
