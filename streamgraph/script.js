@@ -116,7 +116,7 @@ d3.csv("streamgraph/data.csv", function(d) {
         const value = dateDifference[grp];
         tooltip.text(null);
         tooltip.append("tspan")
-            .text(`${grp}: $${value.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}`)
+            .text(`${grp}: ${d3.format("$.3s")(value)}`)
             .attr("font-size", 18);
         tooltip.append("tspan")
             .text(`${year}`)

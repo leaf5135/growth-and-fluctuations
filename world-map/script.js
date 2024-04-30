@@ -6,9 +6,9 @@ const svg = d3.select("svg"),
 // Map and projection
 const path = d3.geoPath();
 const projection = d3.geoMercator()
-  .scale(150)
-  .center([0, 0])
-  .translate([width / 2, height / 2 + 200]);
+    .scale(150)
+    .center([0, 0])
+    .translate([width / 2, height / 2 + 200]);
 
 // Color scale
 const colorScale = d3.scaleLinear()

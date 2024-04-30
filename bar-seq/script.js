@@ -230,10 +230,10 @@ Promise.all([d3.csv("bar-seq/data-import.csv"), d3.csv("bar-seq/data-export.csv"
         function updateTooltip(event, d) {
             tooltip.html(
                 `<strong>${d.type}</strong><br>
-                Import: $${addCommas(d.import)}<br>
-                Export: $${addCommas(d.export)}<br>
+                Import: ${d3.format("$.3s")(d.import)}<br>
+                Export: ${d3.format("$.3s")(d.export)}<br>
                 ${d.import > d.export ? "Import is greater" : "Export is greater"}
-                (difference): $${addCommas(Math.abs(d.import - d.export))}`)
+                (difference): ${d3.format("$.3s")(Math.abs(d.import - d.export))}`)
             .style("left", event.pageX + "px")
             .style("top", event.pageY + "px");
         }

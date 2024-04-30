@@ -118,9 +118,9 @@ d3.csv("multiline/data.csv").then(data => {
     function handleMouseMove(event, d) {
         const [x, y] = d3.pointer(event);
             tooltip.html(`<strong>Year:</strong> ${d.Year}<br>
-                <strong>Imports:</strong> $${d.Imports.toLocaleString()}<br>
-                <strong>Exports:</strong> $${d.Exports.toLocaleString()}<br>
-                <strong>Trade Balance:</strong> $${(d.Exports - d.Imports).toLocaleString()}`)
+                <strong>Imports:</strong> ${d3.format("$.3s")(d.Imports)}<br>
+                <strong>Exports:</strong> ${d3.format("$.3s")(d.Exports)}<br>
+                <strong>Trade Balance:</strong> ${d3.format("$.3s")(d.Exports - d.Imports)}`)
             .style("left", (event.pageX) + "px")
             .style("top", (event.pageY) + "px");
     }
