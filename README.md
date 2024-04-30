@@ -1,2 +1,1 @@
-# dviz-final-project
-Work in Progress
+# Growth and Fluctuations - A Visual Story of the U.S. Economy
