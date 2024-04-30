@@ -79,7 +79,7 @@ d3.csv("line/data.csv").then(data => {
     function handleMouseMove(event, d) {
         const [x, y] = d3.pointer(event);
             tooltip.html(`<strong>Year:</strong> ${d.Year}<br>
-                <strong>Minimum Wage:</strong> $${d.MinimumWage}`)
+                <strong>Minimum Wage:</strong> ${d3.format("$.3s")(d.MinimumWage)}`)
             .style("left", (event.pageX) + "px")
             .style("top", (event.pageY) + "px");
     }

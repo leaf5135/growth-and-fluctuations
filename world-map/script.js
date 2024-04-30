@@ -51,7 +51,7 @@ Promise.all([
     const tooltip = d3.select(".tooltip");
 
     let mouseMove = function(event, d) {
-        tooltip.html(`<strong>Country:</strong> ${name_data.get(d.id)}<br><strong>GDP per capita:</strong> $${gdp_data.get(d.id)}<br><strong>Population:</strong> ${pop_data.get(d.id).toLocaleString()}`)
+        tooltip.html(`<strong>Country:</strong> ${name_data.get(d.id)}<br><strong>GDP per capita:</strong> $${gdp_data.get(d.id)}<br><strong>Population:</strong> ${format(pop_data.get(d.id))}`)
             .style("left", (event.pageX) + "px")
             .style("top", (event.pageY) + "px");
     };
@@ -102,4 +102,6 @@ Promise.all([
         .on("mouseover", mouseOver )
         .on("mousemove", function(event, d) { mouseMove(event, d); })
         .on("mouseleave", mouseLeave );
+
+    var format = number => (d3.format(".3s")(number).replace(/T/, " Trillion").replace(/G/, " Billion").replace(/M/, " Million").replace(/k/, " Thousand"));
 });

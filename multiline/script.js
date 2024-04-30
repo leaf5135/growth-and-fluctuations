@@ -111,6 +111,8 @@ d3.csv("multiline/data.csv").then(data => {
 
     const tooltip = d3.select(".tooltip");
 
+    var format = number => (d3.format(".3s")(number).replace(/T/, " Trillion").replace(/G/, " Billion").replace(/M/, " Million").replace(/k/, " Thousand"));
+
     function handleMouseOver(event, d) {
         tooltip.transition().style("opacity", 1);
     }
@@ -118,9 +120,9 @@ d3.csv("multiline/data.csv").then(data => {
     function handleMouseMove(event, d) {
         const [x, y] = d3.pointer(event);
             tooltip.html(`<strong>Year:</strong> ${d.Year}<br>
-                <strong>Imports:</strong> ${d3.format("$.3s")(d.Imports)}<br>
-                <strong>Exports:</strong> ${d3.format("$.3s")(d.Exports)}<br>
-                <strong>Trade Balance:</strong> ${d3.format("$.3s")(d.Exports - d.Imports)}`)
+                <strong>Imports:</strong> $${format(d.Imports)}<br>
+                <strong>Exports:</strong> $${format(d.Exports)}<br>
+                <strong>Trade Balance:</strong> $${format(Math.abs(d.Exports - d.Imports))}`)
             .style("left", (event.pageX) + "px")
             .style("top", (event.pageY) + "px");
     }
@@ -131,7 +133,11 @@ d3.csv("multiline/data.csv").then(data => {
 
     // Add axes
     const xAxis = d3.axisBottom(xScale).tickFormat(d3.format("d"));
-    const yAxis = d3.axisLeft(yScale).tickFormat(d3.format("$.2s"));
+    const yAxis = d3.axisLeft(yScale).tickFormat(function(number) {
+        var formatted = d3.format("$.2s")(number);
+        return formatted.replace(/G/, "B");
+      });
+
 
     chart.append("g")
         .attr("transform", `translate(0, ${chartHeight})`)

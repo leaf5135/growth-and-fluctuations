@@ -116,7 +116,7 @@ d3.csv("streamgraph/data.csv", function(d) {
         const value = dateDifference[grp];
         tooltip.text(null);
         tooltip.append("tspan")
-            .text(`${grp}: ${d3.format("$.3s")(value)}`)
+            .text(`${grp}: $${format(value)}`)
             .attr("font-size", 18);
         tooltip.append("tspan")
             .text(`${year}`)
@@ -180,4 +180,6 @@ d3.csv("streamgraph/data.csv", function(d) {
         .style("font-size", "16px")
         .style("fill", "white")
         .text("GDP Components");
+
+    var format = number => (d3.format(".3s")(number).replace(/T/, " Trillion").replace(/G/, " Billion").replace(/M/, " Million").replace(/k/, " Thousand"));
 });

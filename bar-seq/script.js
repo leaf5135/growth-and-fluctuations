@@ -143,12 +143,12 @@ Promise.all([d3.csv("bar-seq/data-import.csv"), d3.csv("bar-seq/data-export.csv"
         svg.select(".import-legend")
             .call(importLegend)
             .selectAll("text")
-            .text((d) => d3.format("$.2s")(d));
+            .text((d) => d3.format("$.2s")(d).replace(/G/, "B"));
 
         svg.select(".export-legend")
             .call(exportLegend)
             .selectAll("text")
-            .text((d) => d3.format("$.2s")(d));
+            .text((d) => d3.format("$.2s")(d).replace(/G/, "B"));
 
         // Update existing bars
         const bars = svg.selectAll(".bar").data(combinedData);
@@ -201,7 +201,12 @@ Promise.all([d3.csv("bar-seq/data-import.csv"), d3.csv("bar-seq/data-export.csv"
             .attr("fill", (d) => importColor(d.import));
 
         // Axes update
-        xAxis.transition().duration(1000).call(d3.axisBottom(xScale).tickFormat(d3.format("$.2s"))).selectAll("text").style("font-size", "12px");
+        xAxis.transition().duration(1000)
+            .call(d3.axisBottom(xScale).tickFormat(function(d) {
+                return d3.format("$.2s")(d).replace(/G/, "B");
+            }))
+            .selectAll("text")
+            .style("font-size", "12px");
         xAxis.select(".domain").remove();
         yAxis.transition().duration(1000).call(d3.axisLeft(yScale)).selectAll("text").style("font-size", "14px");
 
@@ -222,6 +227,8 @@ Promise.all([d3.csv("bar-seq/data-import.csv"), d3.csv("bar-seq/data-export.csv"
             .style("stroke", "gray")
             .style("stroke-dasharray", "2,2");
 
+        var format = number => (d3.format(".3s")(number).replace(/T/, " Trillion").replace(/G/, " Billion").replace(/M/, " Million").replace(/k/, " Thousand"));
+
         // Tooltip functions
         function showTooltip() {
             tooltip.transition().style("opacity", 1).duration(500);
@@ -230,10 +237,10 @@ Promise.all([d3.csv("bar-seq/data-import.csv"), d3.csv("bar-seq/data-export.csv"
         function updateTooltip(event, d) {
             tooltip.html(
                 `<strong>${d.type}</strong><br>
-                Import: ${d3.format("$.3s")(d.import)}<br>
-                Export: ${d3.format("$.3s")(d.export)}<br>
+                Import: $${format(d.import)}<br>
+                Export: $${format(d.export)}<br>
                 ${d.import > d.export ? "Import is greater" : "Export is greater"}
-                (difference): ${d3.format("$.3s")(Math.abs(d.import - d.export))}`)
+                (difference): $${format(Math.abs(d.import - d.export))}`)
             .style("left", event.pageX + "px")
             .style("top", event.pageY + "px");
         }
