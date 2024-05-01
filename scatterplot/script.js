@@ -149,28 +149,46 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
             .y(d => d[1]);
 
         // Append the curve path to the SVG
-        svg.append("path")
+        const path = svg.append("path")
             .datum(curveData)
             .attr("class", "curve")
-            .attr("d", curveLine)
             .attr("fill", "none")
             .attr("stroke", "white")
-            .attr("stroke-width", 3);
+            .attr("stroke-width", 3)
+            .attr("d", curveLine)
+            .style("opacity", 0);
+
+        // Animate the curve path
+        path.transition()
+            .attr("stroke-dasharray", function() {
+                return this.getTotalLength() + " " + this.getTotalLength();
+            })
+            .attr("stroke-dashoffset", function() {
+                return this.getTotalLength();
+            })
+            .delay(750)
+            .transition()
+            .duration(2000)
+            .style("opacity", 1)
+            .attr("stroke-dashoffset", 0);
     }
 
-    // Function to remove the curve
-    function removeCurve() {
-        svg.select(".curve").remove();
+    function showCurve() {
+        svg.select(".curve").transition().duration(500).style("opacity", 1);
+    }
+
+    function hideCurve() {
+        svg.select(".curve").transition().duration(500).style("opacity", 0);
     }
 
     // Event listener for toggle button
-    drawCurve(); // Draw the curve by default
+    drawCurve();
     d3.select("#toggleCurve").on("click", function() {
-        const isCurveDrawn = !svg.select(".curve").empty();
+        const isCurveDrawn = svg.select(".curve").style("opacity") == 1;
         if (isCurveDrawn) {
-            removeCurve();
+            hideCurve();
         } else {
-            drawCurve();
+            showCurve();
         }
     });
 });
