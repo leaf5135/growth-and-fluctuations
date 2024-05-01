@@ -87,27 +87,40 @@ Promise.all([
         tooltip.transition().style("opacity", 0);
     };
 
-    // Draw the map
+    // Draw the map with smooth transition
+    let transitionCount = 0;
+    const totalTransitions = topo.features.length;
     svg.append("g")
         .selectAll("path")
         .data(topo.features)
         .enter()
         .append("path")
-        // draw each country
         .attr("d", d3.geoPath()
             .projection(projection)
         )
-        // set the color of each country
+        .style("stroke", "transparent")
+        .attr("class", function(d){ return "Country" } )
+        .style("opacity", 0)
+        .attr("fill", "darkgrey")
+        .transition()
+        .duration(100)
+        .delay(function(d, i) { return i * 10; })
+        .style("opacity", 1)
+        .transition()
+        .duration(1000)
         .attr("fill", function (d) {
             d.total = gdp_data.get(d.id) || 0;
             return colorScale(d.total);
         })
-        .style("stroke", "transparent")
-        .attr("class", function(d){ return "Country" } )
-        .style("opacity", 1)
-        .on("mouseover", mouseOver )
-        .on("mousemove", function(event, d) { mouseMove(event, d); })
-        .on("mouseleave", mouseLeave );
+        .on("end", function() {
+            transitionCount++;
+            if (transitionCount === totalTransitions) {
+                d3.selectAll(".Country")
+                    .on("mouseover", mouseOver)
+                    .on("mousemove", function(event, d) { mouseMove(event, d); })
+                    .on("mouseleave", mouseLeave);
+            }
+        });
 
     var format = number => (d3.format(".3s")(number).replace(/T/, " Trillion").replace(/G/, " Billion").replace(/M/, " Million").replace(/k/, " Thousand"));
 });
