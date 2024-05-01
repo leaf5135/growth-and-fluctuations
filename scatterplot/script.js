@@ -90,7 +90,8 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
     .attr("y1", yScale(0))
     .attr("y2", yScale(0))
     .transition()
-    .duration(1000)
+    .delay(1000)
+    .duration(2000)
     .attr("x2", width - margin.right)
     .attr("stroke", "rgba(255, 255, 255, 0.5)")
     .attr("stroke-dasharray", "3,3")
@@ -104,6 +105,9 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
                 .attr("fill", "green")
                 .attr("r", 10);
 
+            // Reduce opacity of other circles
+            svg.selectAll("circle").filter(dot => dot !== d).attr("opacity", 0.3);
+
             // Show tooltip
             tooltip.style("opacity", 1)
                 .html(`<strong>Year:</strong> ${d.year}<br><strong>Unemployment Rate:</strong> ${d.unemployment.toFixed(2)}%<br><strong>Inflation Rate:</strong> ${d.inflation.toFixed(2)}%`)
@@ -114,6 +118,9 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
             d3.select(this)
                 .attr("fill", "#8cff79")
                 .attr("r", 5);
+
+            // Reset opacity of other circles
+            svg.selectAll("circle").attr("opacity", 1);
 
             // Hide tooltip
             tooltip.style("opacity", 0);
