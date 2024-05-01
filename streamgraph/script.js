@@ -110,22 +110,38 @@ d3.csv("streamgraph/data.csv", function(d) {
         const dateDifference = date - d0.Years > d1.Years - date ? d1 : d0;
         const year = d3.timeFormat("%Y")(date);
         const value = dateDifference[grp];
+
         tooltip.text(null);
+
+        // Calculate the x position for the text to be centered
+        const textWidth = tooltip.append("tspan")
+            .text(`${grp}: $${format(value)}`)
+            .attr("font-size", 18)
+            .attr("opacity", 0)
+            .node()
+            .getComputedTextLength();
+
+        const textX = xPos - textWidth / 2;
+
         tooltip.append("tspan")
             .text(`${grp}: $${format(value)}`)
+            .attr("x", textX)
             .attr("font-size", 18);
+
         tooltip.append("tspan")
             .text(`${year}`)
             .attr("x", xPos)
             .attr("text-anchor", "middle")
             .attr("dy", "30")
             .attr("font-size", 14);
+
         verticalLine.attr("x1", xPos)
             .attr("y1", 50)
             .attr("x2", xPos)
             .attr("y2", height - 100)
             .style("opacity", 1);
     };
+
     const mouseleave = function(event, d) {
         tooltip.style("opacity", 0);
         verticalLine.style("opacity", 0);
