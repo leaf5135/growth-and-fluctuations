@@ -67,21 +67,22 @@
 
 <!-- About -->
 <div class="w3-content w3-container w3-padding-64" id="about">
-    <h2>What is this project about?</h2>
-    <h4>This website serves as a gallery showcasing data visualizations that delve into various facets of the U.S. economy spanning the past century. Here, you'll gain insights into how the US GDP compares globally, the dynamics between imports and exports, as well as key economic indicators such as inflation and minimum wage.</h4>
-    <h4><strong>Note:</strong> This is best viewed on a desktop or laptop.</h4>
+    <h2 class="w3-center">What is this project about?</h2>
+    <h4 class="w3-center">This website serves as a gallery showcasing data visualizations that delve into various facets of the U.S. economy spanning the past century. Here, you'll gain insights into how the US GDP compares globally, the dynamics between imports and exports, as well as key economic indicators such as inflation and minimum wage.</h4>
+    <h4 class="w3-center"><strong>Note:</strong> This is best viewed on a desktop or laptop.</h4>
     <br><br>
-    <h2>Guide</h2>
-    <h4>For each graph, you'll find instructions on how to interact with it:</h4>
-    <h4><strong>Hover:</strong> Simply hover over data points to access additional information about the data.</h4>
-    <h4><strong>Toggle button:</strong> Use toggle buttons to show or hide the best fit line.</h4>
-    <h4><strong>Dropdown menu:</strong> Select a specific year to view the corresponding data.</h4>
-    <h4><strong>Zoom:</strong> Scroll the mouse wheel to zoom in and out, or drag to adjust the position of the graph.</h4>
+    <h2 class="w3-center">Guide</h2>
+    <h4 class="w3-center">For each graph, you'll find instructions on how to interact with it:</h4>
+    <h4 class="w3-center"><strong>Hover:</strong> Simply hover over data points to access additional information about the data.</h4>
+    <h4 class="w3-center"><strong>Toggle button:</strong> Use toggle buttons to show or hide the best fit line.</h4>
+    <h4 class="w3-center"><strong>Dropdown menu:</strong> Select a specific year to view the corresponding data.</h4>
+    <h4 class="w3-center"><strong>Zoom:</strong> Scroll the mouse wheel to zoom in and out, or drag to adjust the position of the graph.</h4>
     <br><br>
-    <h2>Rebuild Feature</h2>
-    <h4>At the top right corner of the website, you'll find a button like this:</h4>
-    <button id="reloadButton" class="w3-button w3-black w3-xlarge"><i class="fa fa-refresh"></i> Rebuild</button>
-    <h4>When interacting with any graph, don't forget to click <i>Rebuild</i>! This action allows you to observe how the graph is constructed or reset it to its default settings.</h4>
+    <h2 class="w3-center">Rebuild Feature</h2>
+    <h4 class="w3-center">At the top right corner of the website, you'll find a button like this:</h4>
+    <br><button id="reloadButton" class="w3-button w3-black w3-xlarge"><i class="fa fa-refresh"></i> Rebuild</button><br>
+    <h4 class="w3-center">When interacting with any graph, don't forget to click <i>Rebuild</i>.</h4>
+    <h4 class="w3-center">This action allows you to observe how the graph is constructed or reset it to its default settings.</h4>
     <br><br>
     <h1 class="w3-center"><strong>Click on a section from the navbar or start scrolling to explore.</strong></h1>
 </div>
@@ -94,26 +95,27 @@
         </span>
     </div>
 </div>
+
 <div class="m6 w3-hide-small w3-padding-large w3-content w3-container w3-padding-64">
-    <p>Let's embark on a journey to explore where the US stands in the global economy before diving into its complexities.</p>
-    <p>GDP per capita is a measure that divides a country's total GDP by its population. It provides an average of how much economic output each person contributes to the economy. Imagine splitting the national wealth among everyone in the country to see how much each person would get on average. GDP per capita helps compare the economic well-being of different countries by considering population size. A higher GDP per capita generally suggests a higher standard of living, indicating more wealth available per person. It's also useful for tracking changes in average living standards over time within a country.</p>
-    <p>As we examine the choropleth map before us, depicting economic trends spanning half a century, we witness the consistent strength of the United States. Over this extensive period, the US economy has shown remarkable stability and growth.</p>
+    <h3>The United States has consistently maintained its <strong>leading position</strong> in GDP per capita over the past several decades.</h3>
+    <div id="world-map"></div>
+    <p style="text-align: center;">Try hovering over each country to see more.</p>
 </div>
-<h3 style="text-align: center;">Average GDP per Capita by Country (1970-2017)</h3>
-<p style="text-align: center;">Try hovering over each country to see more.</p>
-<div id="world-map"></div>
 <div class="m6 w3-hide-small w3-padding-large w3-content w3-container w3-padding-64">
-    <p>When we compare the economic output of the United States to other nations, we see something remarkable: our country stands out as a beacon of prosperity. On average, we generate more income than many other countries, placing us among the wealthiest globally.</p>
-    <p>Reflecting on this, we realize the privilege of living in a nation with such abundance. But let's not stop there—let's explore the diverse landscape of GDP across industries and government sectors.</p>
-    <p>GDP stands for Gross Domestic Product, which measures the total value of all goods and services produced within a country's borders over a specific period, like a year or a quarter. It's like adding up everything the country makes, from cars to clothes to services like haircuts and doctor visits. GDP helps economists understand how big and healthy an economy is. A high GDP usually means a strong economy with lots of production and spending, while a low GDP might suggest economic challenges like recession or slow growth. We use GDP to compare how different countries are doing economically or to track changes over time.</p>
-    <p>GDP varies across sectors and government levels: State and Local Government GDP includes spending on things like education and roads within their areas; Federal Government GDP covers spending on defense, welfare, and infrastructure; Investments GDP includes spending on assets like stocks and real estate; Services GDP covers things like healthcare and finance; Goods GDP involves making tangible products like cars and crops. Understanding these differences helps us measure economic performance and make informed decisions for growth.</p>
+    <h4 class="w3-center">When we compare the economic output of the United States to other nations, we see something remarkable: our country stands out as a beacon of prosperity. On average, we generate more income than most other countries, placing us among the wealthiest globally. Our high GDP per capita reflects the strength of our economy and the standard of living enjoyed by our citizens.</h4>
+    <br>
+    <hr>
 </div>
-<h3 style="text-align: center;">U.S. GDP Components (1970 - 2020)</h3>
-<p style="text-align: center;">Zoom and hover over the streams and observe growth overtime.</p>
+
+<div class="w3-content">
+    <h3>The services sector produces more than <strong>doubled</strong> the combined GDP generated by both state and federal governments.</h3>
+    <p style="text-align: center;">Zoom and hover over the streams and observe growth overtime.</p>
+</div>
 <div id="streamgraph"></div>
 <div class="m6 w3-hide-small w3-padding-large w3-content w3-container w3-padding-64">
-    <p>Looking at the graph, we notice something interesting: the services sector generates much more GDP than both state and federal governments combined. This shows how important the services industry is for our economy.</p>
-    <p>Also, the graph shows that GDP has been growing rapidly over time. This tells us that our economy is expanding quickly. It makes us wonder if this trend will continue in the future. Our economy is always changing and evolving, sparking curiosity and questions.</p>
+    <h4 class="w3-center">The services sector is a powerhouse of economic activity, contributing significantly to the nation's GDP. This sector encompasses a wide range of industries, including finance, healthcare, and technology, which collectively drive economic growth and job creation.</h4>
+    <br>
+    <h4 class="w3-center">The steady rise in GDP shows that our economy is growing fast, making us wonder if this trend will keep up in the future. Our economy is always changing, which sparks curiosity and raises questions about what lies ahead.</h4>
 </div>
 
 <!-- Trade -->
