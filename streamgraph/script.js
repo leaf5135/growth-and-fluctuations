@@ -3,13 +3,15 @@ const margin = {top: 20, right: 30, bottom: 50, left: 150},
     width = 1000 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
+function build() {
+d3.select("#streamgraph svg").remove();
+
 const svg = d3.select("#streamgraph")
     .append("svg")
     .attr("width", width + margin.left + margin.right + 250)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
-    .attr("transform",
-        `translate(${margin.left}, ${margin.top})`);
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // Load data from csv
 d3.csv("streamgraph/data.csv", function(d) {
@@ -40,22 +42,16 @@ d3.csv("streamgraph/data.csv", function(d) {
         .attr("font-size", 12)
         .attr("transform", "translate(0, 20)");
 
-    // Add x axis label
-    // svg.append("text")
-    //     .attr("text-anchor", "end")
-    //     .attr("font-size", 18)
-    //     .attr("x", width/2)
-    //     .attr("y", height - margin.top - margin.bottom + 40)
-    //     .text("Year")
-    //     .style("fill", "white");
-
     // Add y axis
     const y = d3.scaleLinear()
         .domain([-15000000000000, 15000000000000])
         .range([height - 106.66, 50]);
     svg.append("g")
         .attr("class", "y-axis")
-        .call(d3.axisLeft(y).ticks(7).tickSize(-width).tickFormat(d3.format(".2s"))).selectAll("text").attr("font-size", 12);
+        .call(d3.axisLeft(y).ticks(7).tickSize(-width).tickFormat(function(number) {
+            var formatted = d3.format(".2s")(number);
+            return formatted.replace(/G/, "B");
+          })).selectAll("text").attr("font-size", 12);
 
     // Add y axis label
     svg.append("text")
@@ -85,7 +81,7 @@ d3.csv("streamgraph/data.csv", function(d) {
         .attr("x", 0)
         .attr("y", 0)
         .style("opacity", 0)
-        .style("font-size", 17)
+        .style("font-size", 18)
         .style("fill", "white");
 
     const verticalLine = svg
@@ -96,11 +92,11 @@ d3.csv("streamgraph/data.csv", function(d) {
         .style("stroke-dasharray", "5")
         .style("opacity", 0);
 
-    const mouseover = function(event,d) {
+    const mouseover = function(event, d) {
         tooltip.style("opacity", 1);
         d3.selectAll(".myArea").style("opacity", .2);
         d3.select(this)
-            .style("stroke", "black")
+            .style("stroke", "white")
             .style("opacity", 1);
     };
     const mousemove = function(event, d, i) {
@@ -130,11 +126,25 @@ d3.csv("streamgraph/data.csv", function(d) {
             .attr("y2", height - 100)
             .style("opacity", 1);
     };
-    const mouseleave = function(event,d) {
+    const mouseleave = function(event, d) {
         tooltip.style("opacity", 0);
         verticalLine.style("opacity", 0);
         d3.selectAll(".myArea").style("opacity", 1).style("stroke", "none");
     };
+
+    // Define clipping path with upper and lower bounds
+    const upperBound = height - 107.5;
+    const lowerBound = 52.5;
+    svg.append("defs").append("clipPath")
+        .attr("id", "clip")
+        .append("rect")
+        .attr("width", width)
+        .attr("height", upperBound - lowerBound)
+        .attr("y", lowerBound);
+
+    // Create a group for the areas and apply clipping
+    const areas = svg.append("g")
+        .attr("clip-path", "url(#clip)");
 
     // Generate areas
     const area = d3.area()
@@ -142,7 +152,7 @@ d3.csv("streamgraph/data.csv", function(d) {
         .y0(function(d) { return y(d[0]); })
         .y1(function(d) { return y(d[1]); });
 
-    svg.selectAll("mylayers")
+    areas.selectAll(".mylayers")
         .data(stackedData)
         .join("path")
         .attr("class", "myArea")
@@ -152,6 +162,28 @@ d3.csv("streamgraph/data.csv", function(d) {
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave);
 
+    // Add zoom behavior
+    const zoom = d3.zoom()
+        .scaleExtent([0.5, 15])
+        .on("zoom", zoomed);
+
+    svg.call(zoom);
+
+    function zoomed(event) {
+        // Update y scale and redraw y-axis
+        const newYScale = event.transform.rescaleY(y);
+        svg.select(".y-axis").call(d3.axisLeft(newYScale).ticks(7).tickSize(-width).tickFormat(function(number) {
+            var formatted = d3.format(".2s")(number);
+            return formatted.replace(/G/, "B");
+          })).selectAll("text").attr("font-size", 12);
+
+        // Update areas based on new y scale, don't go outside x and y axis bounds
+        svg.selectAll(".myArea")
+            .attr("d", d3.area()
+                .x(function(d) { return x(d.data.Years); })
+                .y0(function(d) { return newYScale(d[0]); })
+                .y1(function(d) { return newYScale(d[1]); }));
+    }
 
     // Add legend
     var ordinal = d3.scaleOrdinal()
@@ -183,3 +215,7 @@ d3.csv("streamgraph/data.csv", function(d) {
 
     var format = number => (d3.format(".3s")(number).replace(/T/, " Trillion").replace(/G/, " Billion").replace(/M/, " Million").replace(/k/, " Thousand"));
 });
+}
+
+build();
+document.getElementById("reloadButton").addEventListener("click", build);
