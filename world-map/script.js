@@ -1,7 +1,13 @@
-// The svg
-const svg = d3.select("svg"),
-  width = +svg.attr("width"),
-  height = +svg.attr("height");
+const width = 1000;
+const height = 800;
+
+function build() {
+d3.select("#world-map svg").remove();
+
+const svg = d3.select("#world-map")
+    .append("svg")
+    .attr("width", width)
+    .attr("height", height);
 
 // Map and projection
 const path = d3.geoPath();
@@ -105,3 +111,7 @@ Promise.all([
 
     var format = number => (d3.format(".3s")(number).replace(/T/, " Trillion").replace(/G/, " Billion").replace(/M/, " Million").replace(/k/, " Thousand"));
 });
+}
+
+build();
+document.getElementById("reloadButton").addEventListener("click", build);
