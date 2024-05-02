@@ -70,7 +70,7 @@
     <h2>What is this project about?</h2>
     <h4>This website serves as a gallery showcasing data visualizations that delve into various facets of the U.S. economy spanning the past century. You can see comparisons of U.S. GDP with other countries, understand import-export dynamics, and explore economic indicators like inflation and minimum wage.</h4>
     <h4><strong>Note:</strong> This is best viewed on a desktop or laptop.</h4>
-    <h4>To learn more about the project's motivation, <a href="#methodology" style="color: #8cff79;">click here</a>.</h4>
+    <h4>To learn more about the project, <a href="#methodology" style="color: #8cff79;">click here</a>.</h4>
     <br><br>
     <h2>Guide</h2>
     <h4>For each graph, you'll find instructions on how to interact with it:</h4>
@@ -215,13 +215,79 @@
     <div class="m6 w3-hide-small w3-padding-large">
         <p>Through thorough analysis of economic data and its historical trajectory, I aim to uncover meaningful patterns that can aid me in navigating future changes with greater insight. Given that economic insights are often communicated through visual representations, this project offers an exciting opportunity to deepen my understanding of both economics and data visualization techniques. Through my engaging narrative and immersive data visualizations, I aim to provide you with a comprehensive understanding of the US economy's evolution and dynamics over time.</p>
     </div>
-    <h3>Summary</h3>
+    <h3>Project Objectives</h3>
     <div class="m6 w3-hide-small w3-padding-large">
-        <p>We kick off by delving into the nation's Gross Domestic Product (GDP) over the past half-century, showcasing its growth trajectory through a visually rich streamgraph. Additionally, I provide a choropleth world map depicting GDP per capita, allowing you to contextualize the US economy within the global landscape.<br><br>Continuing our exploration, I delve into the dynamics of imports and exports using a comprehensive multiline chart. Through paired bar charts featuring sequential color schemes, I dissect major categories of imports and exports for specific years, offering insights into trade patterns and trends.<br><br>Transitioning to the realm of inflation, I present a diverging bar chart showcasing historical inflation rates. Furthermore, I investigate unemployment rates, drawing correlations between unemployment and inflation—a commonly discussed economic relationship.<br><br>Last but not least, I unveil a scatterplot comparing inflation rates and unemployment rates, inviting you to explore the validity of the Phillips curve hypothesis, which posits an inverse relationship between inflation and unemployment.</p>
+        <ol>
+            <li>
+                <strong>GDP Analysis:</strong> Investigate how GDP varies across different industries and government sectors.
+            </li>
+
+            <li>
+                <strong>Imports and Exports Tracking:</strong> Analyze the fluctuation of imports and exports over time, and identify the predominant types of imports and exports.
+            </li>
+
+            <li>
+                <strong>Average Inflation Assessment:</strong> Determine the average inflation rate over the specified time frame and compare it across different periods.
+            </li>
+
+            <li>
+                <strong>Minimum Wage Analysis:</strong> Explore the evolution of the minimum wage over time and identify notable trends.
+            </li>
+        </ol>
+    </div>
+    <h3>Data Processing</h3>
+    <div class="m6 w3-hide-small w3-padding-large">
+        <p>I parsed the data in CSV format using Excel and VS Code, then processd and visualized it using D3.js.</p>
+
+        <ol>
+            <li>
+                <strong>GDP Analysis:</strong> The data will be structured with column headers representing different industries and government sectors. The first column will denote the time in years, and subsequent columns will indicate GDP values for each sector.
+            </li>
+
+            <li>
+                <strong>Imports and Exports:</strong> This dataset comprises time and import/export values. It will be structured with the first column representing time in years and the second column indicating the import/export value.
+            </li>
+
+            <li>
+                <strong>Average Inflation Assessment:</strong> The data will be structured with the first column representing time in years and the second column indicating the inflation percentage.
+            </li>
+
+            <li>
+                <strong>Minimum Wage Analysis:</strong> This dataset will be structured with the first column representing time and the second column indicating the minimum wage in dollars.
+            </li>
+        </ol>
     </div>
     <h3>Data</h3>
     <div class="m6 w3-hide-small w3-padding-large">
-        <p>All the data used for this project was gathered from <a href="https://usafacts.org/data/topics/economy/" style="font-size: 20px; color: #8cff79;">usafacts.org</a>.<br><br>Additionally, the data has been transposed and filtered to extract the required information.</p>
+        <p>All the data used for this project was gathered from <a href="https://usafacts.org/data/topics/economy/" style="font-size: 20px; color: #8cff79;">usafacts.org</a>.</p>
+    </div>
+    <h3>Related Work</h3>
+    <div class="m6 w3-hide-small w3-padding-large">
+        <p><em>Cited in MLA Format</em></p>
+
+        <ul>
+            <li>
+                Ghosh, Chandana, et al. "The Crisis in the US Economy." <em>Keynesian Macroeconomics Beyond the IS-LM Model</em> (2019): 233-255.
+            </li>
+            <li>
+                Ginzberg, Eli, and George J. Vojta. "The service sector of the US economy." <em>Scientific American</em> 244.3 (1981): 48-55.
+            </li>
+            <li>
+                Gopinath, Munisamy, and Terry L. Roe. "Sources of growth in US GDP and economy-wide linkages to the agricultural sector." <em>Journal of Agricultural and Resource Economics</em> (1996): 325-340.
+            </li>
+            <li>
+                José Gahn, Santiago. “Is There a Declining Trend in Capacity Utilization in the US Economy? A Technical Note.” <em>Review of Political Economy</em> 32 (2020): 283 - 296.
+            </li>
+            <li>
+                Landefeld, J. Steven, Eugene P. Seskin, and Barbara M. Fraumeni. "Taking the pulse of the economy: Measuring GDP." <em>Journal of Economic Perspectives</em> 22.2 (2008): 193-216.
+            </li>
+            <li>
+                Mahalingam, Brinda, and Wafa Hakim Orman. "GDP and energy consumption: A panel analysis of the US." <em>Applied Energy</em> 213 (2018): 208-218.
+            </li>
+            <li>
+                Sharif, Arshian et al. “COVID-19 pandemic, oil prices, stock market, geopolitical risk and policy uncertainty nexus in the US economy: Fresh evidence from the wavelet-based approach.” <em>International Review of Financial Analysis</em> 70 (2020): 101496 - 101496.
+            </li>
+        </ul>
     </div>
 </div>
 
