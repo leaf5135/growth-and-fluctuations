@@ -87,7 +87,7 @@ p {
     color: white;
 }
 
-#year-dropdown select {
+#year-dropdown select, #speed-dropdown select {
     display: block;
     margin: 0 auto;
     text-align: center;

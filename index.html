@@ -75,14 +75,14 @@
     <h4 class="w3-center">For each graph, you'll find instructions on how to interact with it:</h4>
     <h4 class="w3-center"><strong>Hover:</strong> Simply hover over data points to access additional information about the data.</h4>
     <h4 class="w3-center"><strong>Toggle button:</strong> Use toggle buttons to show or hide the best fit line.</h4>
-    <h4 class="w3-center"><strong>Dropdown menu:</strong> Select a specific year to view the corresponding data.</h4>
+    <h4 class="w3-center"><strong>Dropdown menu:</strong> Select a specific speed or year to view the corresponding data.</h4>
     <h4 class="w3-center"><strong>Zoom:</strong> Scroll the mouse wheel to zoom in and out, or drag to adjust the position of the graph.</h4>
     <br><br>
     <h2 class="w3-center">Rebuild Feature</h2>
     <h4 class="w3-center">At the top right corner of the website, you'll find a button like this:</h4>
     <br><button id="reloadButton" class="w3-button w3-black w3-xlarge"><i class="fa fa-refresh"></i> Rebuild</button><br>
     <h4 class="w3-center">When interacting with any graph, don't forget to click <i>Rebuild</i>.</h4>
-    <h4 class="w3-center">This action allows you to observe how the graph is constructed or reset it to its default settings.</h4>
+    <h4 class="w3-center">This action allows you to observe how the graph is constructed or reset it to its default position.</h4>
     <br><br>
     <h1 class="w3-center"><strong>Click on a section from the navbar or start scrolling to explore.</strong></h1>
 </div>
@@ -192,6 +192,7 @@
 </div>
 <h3 style="text-align: center;">U.S. Unemployment vs Inflation Rate (1947 - 2021)</h3>
 <p style="text-align: center;">Hover over each dot to see the year.</p>
+<div style="text-align: center;" id="speed-dropdown"></div>
 <button id="toggleCurve">Toggle Curve</button>
 <div id="scatterplot"></div>
 <div class="m6 w3-hide-small w3-padding-large w3-content w3-container w3-padding-64">

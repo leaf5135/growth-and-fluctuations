@@ -5,6 +5,14 @@ const margin = { top: 10, right: 100, bottom: 70, left: 100 };
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom - 90;
 
+// Values for the dropdown menu
+const values = [10, 100, 1000];
+const labels = ["Fast", "Normal", "Slow"];
+const dropdown = d3
+    .select("#speed-dropdown")
+    .append("select")
+    .attr("id", "speed-select");
+
 function build() {
 d3.select("#scatterplot svg").remove();
 
@@ -17,6 +25,15 @@ const svg = d3.select("#scatterplot")
 // Load data from CSV file
 let data;
 d3.csv("scatterplot/data.csv").then(function (csvData) {
+    // Create dropdown menu
+    dropdown
+        .selectAll("option")
+        .data(values)
+        .enter()
+        .append("option")
+        .attr("value", (d, i) => d)
+        .text((d, i) => labels[i]);
+
     data = csvData;
     data.forEach(function (d) {
         d.year = +d["Years"];
@@ -70,6 +87,8 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
     var tooltip = d3.select(".tooltip");
 
     // Add data points
+    const speed = dropdown.property("value");
+    // console.log(speed);
     svg.selectAll("circle")
         .data(data)
         .enter()
@@ -77,12 +96,34 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
         .attr("cx", d => xScale(d.unemployment))
         .attr("cy", d => yScale(d.inflation))
         .attr("fill", "green")
-        .attr("r", 25)
+        .attr("r", speed >= 100 ? 2 : 25)
         .transition()
-        .delay((d, i) => i * 10)
+        .delay((d, i) => i * speed)
         .duration(500)
         .attr("fill", "#8cff79")
-        .attr("r", 5);
+        .attr("r", 5)
+        .on("start", function(d) {
+            // Display year value above the dot during transition if speed is Normal or Slow
+            if (speed >= 100) {
+                const xPos = xScale(d.unemployment);
+                const yPos = yScale(d.inflation) - 10;
+                svg.append("text")
+                    .attr("class", "year-label")
+                    .attr("x", xPos)
+                    .attr("y", yPos)
+                    .attr("text-anchor", "middle")
+                    .text(d.year)
+                    .style("font-size", "18px")
+                    .style("fill", "white")
+                    .style("opacity", 0)
+                    .transition()
+                    .style("opacity", 1)
+                    .attr("y", yPos - 10);
+            }
+        })
+        .on("end", function() {
+            d3.select(".year-label").remove();
+        });
 
     // Add a faint line on the y = 0 axis
     svg.append("line")
@@ -90,13 +131,12 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
     .attr("y1", yScale(0))
     .attr("y2", yScale(0))
     .transition()
-    .delay(1000)
+    .delay(75 * speed)
     .duration(2000)
     .attr("x2", width - margin.right)
     .attr("stroke", "rgba(255, 255, 255, 0.5)")
     .attr("stroke-dasharray", "3,3")
     .attr("stroke-width", 1);
-
 
     // Add mouse events for tooltip
     svg.selectAll("circle")
@@ -173,7 +213,7 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
             .attr("stroke-dashoffset", function() {
                 return this.getTotalLength();
             })
-            .delay(750)
+            .delay(75 * speed)
             .transition()
             .duration(2000)
             .style("opacity", 1)
