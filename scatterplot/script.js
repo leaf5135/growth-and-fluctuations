@@ -6,7 +6,7 @@ const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom - 90;
 
 // Values for the dropdown menu
-const values = [10, 100, 1000];
+const values = [10, 200, 500];
 const labels = ["Fast", "Normal", "Slow"];
 const dropdown = d3
     .select("#speed-dropdown")
