@@ -36,7 +36,7 @@
         <a href="#home" class="w3-bar-item w3-button">HOME</a>
         <a href="#about" class="w3-bar-item w3-button w3-hide-small">ABOUT</a>
         <a href="#gdp" class="w3-bar-item w3-button w3-hide-small">GDP</a>
-        <a href="#trade" class="w3-bar-item w3-button w3-hide-small">IMPORT/EXPORT</a>
+        <a href="#trades" class="w3-bar-item w3-button w3-hide-small">TRADES</a>
         <a href="#indicators" class="w3-bar-item w3-button w3-hide-small">INDICATORS</a>
         <a href="#methodology" class="w3-bar-item w3-button w3-hide-small">METHODOLOGY</a>
         <button id="reloadButton" id="#align-right" class="w3-bar-item w3-button w3-hide-small" style="float: right;"><i class="fa fa-refresh"></i> Rebuild</button>
@@ -67,23 +67,24 @@
 
 <!-- About -->
 <div class="w3-content w3-container w3-padding-64" id="about">
-    <h2 class="w3-center">What is this project about?</h2>
-    <h4 class="w3-center">This website serves as a gallery showcasing data visualizations that delve into various facets of the U.S. economy spanning the past century. Here, you'll gain insights into how the US GDP compares globally, the dynamics between imports and exports, as well as key economic indicators such as inflation and minimum wage.</h4>
-    <h4 class="w3-center"><strong>Note:</strong> This is best viewed on a desktop or laptop.</h4>
+    <h2>What is this project about?</h2>
+    <h4>This website serves as a gallery showcasing data visualizations that delve into various facets of the U.S. economy spanning the past century. You can see comparisons of U.S. GDP with other countries, understand import-export dynamics, and explore economic indicators like inflation and minimum wage.</h4>
+    <h4><strong>Note:</strong> This is best viewed on a desktop or laptop.</h4>
+    <h4>To learn more about the project's motivation, <a href="#methodology" style="color: #8cff79;">click here</a>.</h4>
     <br><br>
-    <h2 class="w3-center">Guide</h2>
-    <h4 class="w3-center">For each graph, you'll find instructions on how to interact with it:</h4>
-    <h4 class="w3-center"><strong>Hover:</strong> Simply hover over data points to access additional information about the data.</h4>
-    <h4 class="w3-center"><strong>Toggle button:</strong> Use toggle buttons to show or hide the best fit line.</h4>
-    <h4 class="w3-center"><strong>Dropdown menu:</strong> Select a specific speed or year to view the corresponding data.</h4>
-    <h4 class="w3-center"><strong>Zoom:</strong> Scroll the mouse wheel to zoom in and out, or drag to adjust the position of the graph.</h4>
+    <h2>Guide</h2>
+    <h4>For each graph, you'll find instructions on how to interact with it:</h4>
+    <h4><strong>Hover:</strong> Simply hover over data points to access additional information about the data.</h4>
+    <h4><strong>Toggle button:</strong> Use toggle buttons to show or hide the best fit line.</h4>
+    <h4><strong>Dropdown menu:</strong> Select a specific speed or year to view the corresponding data.</h4>
+    <h4><strong>Zoom:</strong> Scroll the mouse wheel to zoom in and out, or drag to adjust the position of the graph.</h4>
     <br><br>
-    <h2 class="w3-center">Rebuild Feature</h2>
-    <h4 class="w3-center">At the top right corner of the website, you'll find a button like this:</h4>
+    <h2>Rebuild Feature</h2>
+    <h4>At the top right corner of the website, you'll find a button like this:</h4>
     <br><button id="reloadButton" class="w3-button w3-black w3-xlarge"><i class="fa fa-refresh"></i> Rebuild</button><br>
-    <h4 class="w3-center">When interacting with any graph, don't forget to click <i>Rebuild</i>.</h4>
-    <h4 class="w3-center">This action allows you to observe how the graph is constructed or reset it to its default position.</h4>
-    <br><br>
+    <h4>When interacting with any graph, don't forget to click <i>Rebuild</i>.</h4>
+    <h4>This action allows you to observe how the graph is constructed or reset it to its default position.</h4>
+    <br><br><br>
     <h1 class="w3-center"><strong>Click on a section from the navbar or start scrolling to explore.</strong></h1>
 </div>
 
@@ -120,7 +121,7 @@
 </div>
 
 <!-- Trade -->
-<div class="bgimg-3 w3-display-container w3-opacity-min" id="trade">
+<div class="bgimg-3 w3-display-container w3-opacity-min" id="trades">
     <div class="w3-display-middle" style="white-space:nowrap; bottom: 50%;">
         <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
             What are the ins and outs?
@@ -130,19 +131,20 @@
 
 <div class="m6 w3-hide-small w3-padding-large w3-content w3-container w3-padding-64">
     <h3>The 2021 COVID-19 rebound boosted imports and exports by <strong style="color: #8cff79;">over half a trillion dollars</strong>.</h3>
-    <p>Try hovering over the dots.</p>
+    <p style="text-align: center;">Try hovering over the dots.</p>
     <div id="multiline"></div>
-    <h4>The years 2008 and 2009 saw a sharp decline in trade, corresponding with the 2008 market crash and subsequent global economic upheaval. This downturn impacted both US imports and exports, leading to a trade deficit where imports consistently surpassed exports. This deficit reflects the US spending more on imports than it earns from exports.</h4>
+    <h4>The years 2008 and 2019 saw a sharp decline in trade, corresponding with the 2008 market crash and COVID-19 pandemic. This downturn impacted both US imports and exports. However, the economy rebounded in both instances, with trade volumes returning to pre-crisis levels as if nothing had happened.</h4>
+    <br>
     <hr>
 </div>
 
 <div class="m6 w3-hide-small w3-padding-large w3-content w3-container w3-padding-64">
-    <h3><strong style="color: #8cff79;">General merchandise imports</strong> consistently <strong style="color: #8cff79;">top</strong> the value of overall imports and exports.</h3>
+    <h3>General merchandise imports consistently <strong style="color: #8cff79;">top</strong> the value of overall imports and exports.</h3>
     <p style="text-align: center;">Hover over the bars to see the differences.</p>
     <div style="text-align: center;" id="year-dropdown"></div>
 </div>
 <div id="bar-seq"></div>
-<div class="m6 w3-hide-small w3-padding-large w3-content w3-container w3-padding-64">
+<div class="w3-content">
     <h4>General merchandise imports, which include a wide range of goods such as electronics, clothing, and machinery, have consistently outpaced other categories of imports and exports. On the other hand, foods and beverages remain a relatively small portion of the trade balance, reflecting the US's reliance on local food production and consumption.</h4>
     <br><br><br>
 </div>
@@ -155,45 +157,45 @@
         </span>
     </div>
 </div>
+
 <div class="m6 w3-hide-small w3-padding-large w3-content w3-container w3-padding-64">
-    <p>Let's delve into the indicators that help us understand the health of the US economy.</p>
-    <p>First on our list is the inflation rate. But what exactly is inflation rate?</p>
-    <p>Inflation rate is a measure of how fast prices are rising in an economy. It's like a gauge that tells us how much more expensive things are getting over time. When inflation is high, the prices of goods and services go up quickly, which means your money doesn't go as far. On the other hand, when inflation is low, prices rise more slowly, and your money retains its value better.</p>
-    <p>Understanding the inflation rate is crucial because it affects almost every aspect of the economy. High inflation can erode people's purchasing power, making it harder for them to afford things. It can also lead to uncertainty and instability in financial markets. On the flip side, low inflation is generally seen as a sign of a healthy economy, where prices are stable, and people can plan for the future more confidently.</p>
+    <h3>Since the Great Depression, inflation has never gone down below <strong style="color: #8cff79;">-2%</strong>.</h3>
+    <p>Hover over each bar to see the exact rates.</p>
 </div>
-<h3 style="text-align: center;">U.S. Inflation Rate (1914 - 2022)</h3>
-<p style="text-align: center;">Hover over each bar to see the exact rates.</p>
 <div id="bar-div"></div>
-<div class="m6 w3-hide-small w3-padding-large w3-content w3-container w3-padding-64">
-    <p>Notice how the inflation rate is almost never negative, with the exception of the Great Depression. That is because during the Great Depression, economic activity plunged, causing prices to fall sharply as demand collapsed.</p>
-    <p>Negative inflation rates can be bad because they can lead to deflation, where prices continue to fall. Deflation can discourage spending because people expect prices to keep dropping, which can hurt businesses and lead to job losses.</p>
-    <p>Usually, inflation rates should stay at low positive values to support economic growth and stability. Moderate inflation encourages spending and investment, while also allowing for gradual wage increases.</p>
-    <p>A negative inflation rate usually follows a high inflation rate because when prices rise too quickly, central banks often step in to cool down the economy by raising interest rates. This can lead to a slowdown in economic activity, eventually causing prices to fall.</p>
-    <p>Next, we'll take a look at minimum wage.</p>
-    <p>Minimum wage is the lowest hourly wage that employers are legally required to pay their employees. It's designed to ensure that workers receive a fair wage for their labor and can afford the basic necessities of life. Minimum wage usually changes over time through legislation or adjustments made by government authorities to keep up with changes in the cost of living and economic conditions.</p>
+<div class="w3-content">
+    <h4>Negative inflation rates can be bad because they can lead to deflation, where prices continue to fall. Deflation can discourage spending because people expect prices to keep dropping, which can hurt businesses and lead to job losses.</h4>
+    <br>
+    <h4>On the other hand, moderate inflation encourages spending and investment, while also allowing for gradual wage increases.</h4>
+    <br>
+    <hr>
 </div>
-<h3 style="text-align: center;">U.S. Minimum Wage (1939 - 2023)</h3>
-<p style="text-align: center;">Try hovering over the dots.</p>
-<div id="line"></div>
+
 <div class="m6 w3-hide-small w3-padding-large w3-content w3-container w3-padding-64">
-    <p>It makes sense that minimum wage only increases over time, and that corresponds with how inflation rates are mostly positive, so we are getting richer in the long run.</p>
-    <p>The dots plotted above represent changes in the minimum wage. There is a dot every time the minimum wage changes, with the exception of the oldest and newest dots.</p>
-    <p>Notice how the US minimum wage between 2009 and 2023 stays the same. That could be because the government did not pass any legislation to increase the minimum wage during that time period, possibly due to political or economic reasons.</p>
-    <p>And who knows? Will it change in the future?</p>
-    <p>Last but not least, here is a scatterplot of unemployment vs inflation rate.</p>
-    <p>Unemployment rate vs inflation rate is a comparison between the percentage of people who are unemployed and the rate at which prices of goods and services are increasing. Generally, when unemployment is high, inflation tends to be low, and vice versa. This relationship is known as the Phillips curve.</p>
-    <p>This scatterplot is also a test to validate if the Phillips curve is a valid theorem. It examines whether there is an inverse relationship between unemployment and inflation, as predicted by the Phillips curve theory.</p>
+    <h3>Since the Great Recession, U.S. minimum wage has remained stagnant for over <strong style="color: #8cff79;">15 years</strong>, a phenomenon unprecedented in the past century.</h3>
+    <p>Try hovering over the dots.</p>
+    <div id="line"></div>
 </div>
-<h3 style="text-align: center;">U.S. Unemployment vs Inflation Rate (1947 - 2021)</h3>
-<p style="text-align: center;">Hover over each dot to see the year.</p>
-<div style="text-align: center;" id="speed-dropdown"></div>
-<button id="toggleCurve">Toggle Curve</button>
-<div id="scatterplot"></div>
+<div class="w3-content">
+    <h4>Minimum wage is a critical issue that affects millions of workers across the country. The stagnation of minimum wage over the past decade raises concerns about income inequality and the ability of workers to make ends meet. As the cost of living continues to rise, the lack of growth in minimum wage has left many workers struggling to keep up with inflation and maintain a decent standard of living.</h4>
+    <br>
+    <hr>
+</div>
+
 <div class="m6 w3-hide-small w3-padding-large w3-content w3-container w3-padding-64">
-    <p>This scatterplot challenges the validity of the Phillips curve. It indicates that the two variables are not consistently inversely related, thus casting doubt on the accuracy of the theory in today's economic context.</p>
-    <p>However, upon closer examination, we notice that certain outlier data points seem to align with the general shape of the Phillips curve. This suggests that while the theory may not hold true across all situations, there are instances where it still provides a useful framework for understanding economic dynamics.</p>
-    <p>This dynamic relationship underscores the fluid nature of our economy, constantly evolving in response to various factors such as technological advancements, globalization, and shifts in consumer behavior. Economic theories, while valuable, cannot capture the full complexity of human interactions and market dynamics.</p>
-    <p>Nevertheless, studying the patterns that emerge from economic data allows us to gain insights into the underlying forces driving our economy. It provides a window into the intricate interplay between economic policy, societal changes, and human aspirations, offering valuable lessons for navigating the complexities of the modern world.</p>
+    <h3>As time goes on, history starts to highlight the inadequacy of the <a href="https://en.wikipedia.org/wiki/Phillips_curve" style="color: #8cff79;">Phillips Curve</a> in capturing the complexities of the modern economy.</h3>
+    <p>Set the speed then rebuild the dots over time.</p>
+    <div style="text-align: center;" id="speed-dropdown"></div>
+    <button id="toggleCurve">Toggle Curve</button>
+    <div id="scatterplot"></div>
+</div>
+<div class="w3-content">
+    <h4>The Phillips curve, a widely discussed economic theory, posits an inverse relationship between unemployment and inflation.</h4>
+    <br>
+    <h4>However, this relationship is not as straightforward as it seems. Over the past several decades, the US economy has experienced periods of high inflation and high unemployment, as well as low inflation and low unemployment, challenging the validity of the Phillips curve hypothesis.</h4>
+    <br>
+    <h4>As we navigate the complexities of the modern economy, it's essential to recognize that economic relationships are multifaceted and influenced by a wide range of factors.</h4>
+    <br><br><br>
 </div>
 
 <!-- Methodology -->
@@ -266,8 +268,8 @@
             case 'gdp':
                 console.log('GDP section entered');
                 break;
-            case 'ports':
-                console.log('Import/Export section entered');
+            case 'trades':
+                console.log('Trades section entered');
                 break;
             case 'indicators':
                 console.log('Indicators section entered');
