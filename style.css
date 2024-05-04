@@ -61,14 +61,7 @@ p {
     stroke-opacity: 0.333;
 }
 
-#streamgraph {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 75vh;
-}
-
-#world-map, #multiline, #bar-seq, #bar-div, #line, #scatterplot {
+#world-map, #streamgraph, #multiline, #bar-seq, #bar-div, #line, #scatterplot {
     margin: 0 auto;
     text-align: center;
 }
