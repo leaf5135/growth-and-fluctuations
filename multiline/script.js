@@ -16,6 +16,44 @@ const svg = d3.select("#multiline")
 const chart = svg.append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+// Annotations
+const annotations = [
+    {
+        note: {
+            title: 'Financial Crisis and Great Recession',
+        },
+        x: 400,
+        y: 275,
+        dx: 0,
+        dy: 100,
+        width: 300,
+        type: d3.annotationLabel
+    },
+    {
+        note: {
+            title: 'COVID-19 Pandemic',
+        },
+        x: 700,
+        y: 175,
+        dx: 0,
+        dy: 100,
+        width: 300,
+        type: d3.annotationLabel
+    }
+];
+
+const makeAnnotations = d3.annotation()
+    .annotations(annotations);
+
+svg.append("g")
+    .attr("class", "annotation-group")
+    .call(makeAnnotations)
+    .style("opacity", 0)
+    .transition()
+    .delay(1000)
+    .duration(1000)
+    .style("opacity", 1);
+
 // Load data from CSV
 d3.csv("multiline/data.csv").then(data => {
     // Convert numeric strings to numbers

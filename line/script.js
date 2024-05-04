@@ -16,6 +16,34 @@ const svg = d3.select("#line")
 const chart = svg.append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+// Annotations
+const annotations = [
+    {
+        note: {
+            title: 'Stagnant Increase',
+            label: 'Considering inflation, the minimum wage lost buying power over time'
+        },
+        x: 700,
+        y: 75,
+        dx: 0,
+        dy: 100,
+        width: 300,
+        type: d3.annotationLabel
+    }
+];
+
+const makeAnnotations = d3.annotation()
+    .annotations(annotations);
+
+svg.append("g")
+    .attr("class", "annotation-group")
+    .call(makeAnnotations)
+    .style("opacity", 0)
+    .transition()
+    .delay(1000)
+    .duration(1000)
+    .style("opacity", 1);
+
 // Load data from CSV
 d3.csv("line/data.csv").then(data => {
     // Convert numeric strings to numbers

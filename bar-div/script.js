@@ -13,6 +13,66 @@ const svg = d3.select("#bar-div")
     .append("g")
     .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+// Annotations
+const annotations = [
+    {
+        note: {
+            title: 'The Great Depression',
+        },
+        x: 160,
+        y: 360,
+        dx: 150,
+        dy: 0,
+        width: 300,
+        type: d3.annotationLabel
+    },
+    {
+        note: {
+            title: 'Post World War II Boom',
+        },
+        x: 280,
+        y: 90,
+        dx: 150,
+        dy: 0,
+        width: 300,
+        type: d3.annotationLabel
+    },
+    {
+        note: {
+            title: 'Oil Price Shock and Stagflation',
+        },
+        x: 540,
+        y: 90,
+        dx: 150,
+        dy: 0,
+        width: 300,
+        type: d3.annotationLabel
+    },
+    {
+        note: {
+            title: 'Post COVID Boom',
+        },
+        x: 825,
+        y: 180,
+        dx: -150,
+        dy: 0,
+        width: 300,
+        type: d3.annotationLabel
+    }
+];
+
+const makeAnnotations = d3.annotation()
+    .annotations(annotations);
+
+svg.append("g")
+    .attr("class", "annotation-group")
+    .call(makeAnnotations)
+    .style("opacity", 0)
+    .transition()
+    .delay(1000)
+    .duration(1000)
+    .style("opacity", 1);
+
 // Load data
 d3.csv("bar-div/data.csv")
 .then(data => {
