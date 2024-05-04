@@ -122,8 +122,8 @@ d3.csv("multiline/data.csv").then(data => {
         .attr("cx", d => xScale(d.Year))
         .attr("cy", d => yScale(d.Imports))
         .attr("fill", colorbrewer.PuBu[9][5])
-        .attr("stroke", "white")
-        .attr("stroke-width", 1)
+        .attr("stroke", "transparent")
+        .attr("stroke-width", 2)
         .on("mouseover", handleMouseOver)
         .on("mousemove", handleMouseMove)
         .on("mouseout", handleMouseOut)
@@ -140,8 +140,8 @@ d3.csv("multiline/data.csv").then(data => {
         .attr("cx", d => xScale(d.Year))
         .attr("cy", d => yScale(d.Exports))
         .attr("fill", colorbrewer.OrRd[9][5])
-        .attr("stroke", "white")
-        .attr("stroke-width", 1)
+        .attr("stroke", "transparent")
+        .attr("stroke-width", 2)
         .on("mouseover", handleMouseOver)
         .on("mousemove", handleMouseMove)
         .on("mouseout", handleMouseOut)
@@ -156,6 +156,7 @@ d3.csv("multiline/data.csv").then(data => {
 
     function handleMouseOver(event, d) {
         tooltip.transition().style("opacity", 1);
+        d3.select(this).attr("stroke", "white");
     }
 
     function handleMouseMove(event, d) {
@@ -170,6 +171,7 @@ d3.csv("multiline/data.csv").then(data => {
 
     function handleMouseOut(event, d) {
         tooltip.transition().style("opacity", 0);
+        d3.select(this).attr("stroke", "transparent");
     }
 
     // Add axes
