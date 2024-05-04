@@ -58,13 +58,13 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
         .attr("transform", `translate(0, ${innerHeight})`)
         .call(xAxis)
         .selectAll("text")
-        .style("font-size", "12px");
+        .style("font-size", "14px");
 
     svg.append("g")
         .attr("transform", `translate(${margin.left}, 0)`)
         .call(yAxis)
         .selectAll("text")
-        .style("font-size", "12px");
+        .style("font-size", "14px");
 
     // Add labels for axes
     svg.append("text")
@@ -97,11 +97,15 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
         .attr("cy", d => yScale(d.inflation))
         .attr("fill", "green")
         .attr("r", speed >= 100 ? 2 : 25)
+        .style("stroke", "white")
+        .style("stroke-width", 0.5)
+        .attr("opacity", 0)
         .transition()
         .delay((d, i) => i * speed)
         .duration(500)
         .attr("fill", "#8cff79")
         .attr("r", 5)
+        .attr("opacity", 0.8)
         .on("start", function(d) {
             // Display year value above the dot during transition if speed is Normal or Slow
             if (speed >= 100) {
@@ -160,7 +164,7 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
                 .attr("r", 5);
 
             // Reset opacity of other circles
-            svg.selectAll("circle").attr("opacity", 1);
+            svg.selectAll("circle").attr("opacity", 0.8);
 
             // Hide tooltip
             tooltip.style("opacity", 0);
@@ -216,12 +220,12 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
             .delay(75 * speed)
             .transition()
             .duration(2000)
-            .style("opacity", 1)
+            .style("opacity", 0.8)
             .attr("stroke-dashoffset", 0);
     }
 
     function showCurve() {
-        svg.select(".curve").transition().duration(500).style("opacity", 1);
+        svg.select(".curve").transition().duration(500).style("opacity", 0.8);
     }
 
     function hideCurve() {
@@ -231,7 +235,7 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
     // Event listener for toggle button
     drawCurve();
     d3.select("#toggleCurve").on("click", function() {
-        const isCurveDrawn = svg.select(".curve").style("opacity") == 1;
+        const isCurveDrawn = svg.select(".curve").style("opacity") == 0.8;
         if (isCurveDrawn) {
             hideCurve();
         } else {

@@ -210,7 +210,7 @@ Promise.all([d3.csv("bar-seq/data-import.csv"), d3.csv("bar-seq/data-export.csv"
                 return d3.format("$.2s")(d).replace(/G/, "B");
             }))
             .selectAll("text")
-            .style("font-size", "12px");
+            .style("font-size", "14px");
         xAxis.select(".domain").remove();
         yAxis.transition().duration(1000).call(d3.axisLeft(yScale)).selectAll("text").style("font-size", "14px");
 

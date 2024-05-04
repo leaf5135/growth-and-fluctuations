@@ -80,13 +80,13 @@ d3.csv("bar-div/data.csv")
             .tickSize(0)
             .tickValues(xScale.domain().filter((d, i) => d % 20 === 0 && d >= 1920)))
         .selectAll("text")
-        .style("font-size", "12px");
+        .style("font-size", "14px");
 
     svg.append("g")
         .attr("class", "y-axis")
         .call(d3.axisLeft(yScale).ticks(10).tickFormat(d => d * 100 + "%"))
         .selectAll("text")
-        .style("font-size", "12px");
+        .style("font-size", "14px");
 
     // Add vertical lines
     const tickValues = yScale.ticks();
@@ -133,6 +133,7 @@ d3.csv("bar-div/data.csv")
     // Tooltip functions
     function showTooltip() {
         tooltip.transition().style("opacity", 1).duration(500);
+        d3.select(this).style("stroke", "white").style("stroke-width", 2);
     }
 
     function updateTooltip(event, d) {
@@ -146,6 +147,7 @@ d3.csv("bar-div/data.csv")
 
     function hideTooltip() {
         tooltip.transition().duration(250).style("opacity", 0);
+        d3.select(this).style("stroke", "none");
     }
 });
 }

@@ -146,12 +146,12 @@ d3.csv("multiline/data.csv").then(data => {
         .attr("transform", `translate(0, ${chartHeight})`)
         .call(xAxis)
         .selectAll("text")
-        .style("font-size", "12px");
+        .style("font-size", "14px");
 
     chart.append("g")
         .call(yAxis)
         .selectAll("text")
-        .style("font-size", "12px");
+        .style("font-size", "14px");
 
     // Add axis labels
     // chart.append("text")

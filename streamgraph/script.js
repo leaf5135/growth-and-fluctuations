@@ -39,7 +39,7 @@ d3.csv("streamgraph/data.csv", function(d) {
         .call(d3.axisBottom(x).tickSize(-height*.7).tickFormat(d3.timeFormat("%Y")));
 
     xAxis.selectAll(".tick text")
-        .attr("font-size", 12)
+        .attr("font-size", 14)
         .attr("transform", "translate(0, 20)");
 
     // Add y axis
@@ -51,7 +51,7 @@ d3.csv("streamgraph/data.csv", function(d) {
         .call(d3.axisLeft(y).ticks(7).tickSize(-width).tickFormat(function(number) {
             var formatted = d3.format(".2s")(number);
             return formatted.replace(/G/, "B");
-          })).selectAll("text").attr("font-size", 12);
+          })).selectAll("text").attr("font-size", 14);
 
     // Add y axis label
     svg.append("text")
