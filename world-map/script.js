@@ -57,7 +57,9 @@ Promise.all([
     const tooltip = d3.select(".tooltip");
 
     let mouseMove = function(event, d) {
-        tooltip.html(`<strong>Country:</strong> ${name_data.get(d.id)}<br><strong>GDP per capita:</strong> $${gdp_data.get(d.id)}<br><strong>Population:</strong> ${format(pop_data.get(d.id))}`)
+        tooltip.html(`<strong>Country:</strong> ${name_data.get(d.id)}<br>
+        <strong>GDP per capita:</strong> $${d3.format(",")(gdp_data.get(d.id))}<br>
+        <strong>Population:</strong> ${format(pop_data.get(d.id))}`)
             .style("left", (event.pageX) + "px")
             .style("top", (event.pageY) + "px");
     };
