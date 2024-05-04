@@ -96,7 +96,7 @@ d3.csv("scatterplot/data.csv").then(function (csvData) {
         .attr("cx", d => xScale(d.unemployment))
         .attr("cy", d => yScale(d.inflation))
         .attr("fill", "green")
-        .attr("r", speed >= 100 ? 2 : 25)
+        .attr("r", speed >= 100 ? 0 : 25)
         .style("stroke", "white")
         .style("stroke-width", 0.5)
         .attr("opacity", 0)

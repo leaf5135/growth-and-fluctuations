@@ -84,7 +84,6 @@ Promise.all([
         d3.select(this)
         .transition()
         .duration(200)
-        .style("stroke", "transparent")
         .style("opacity", 1)
         tooltip.transition().style("opacity", 0);
     };
@@ -110,6 +109,8 @@ Promise.all([
         .style("opacity", 1)
         .transition()
         .duration(1000)
+        .style("stroke", "black")
+        .style("stroke-width", 0.1)
         .attr("fill", function (d) {
             d.total = gdp_data.get(d.id) || 0;
             return colorScale(d.total);
