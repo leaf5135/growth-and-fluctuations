@@ -170,26 +170,6 @@ d3.csv("bar-div/data.csv")
         .selectAll("path")
         .remove();
 
-    // Add axis labels
-    // svg.append("text")
-    //     .attr("class", "x-axis-label")
-    //     .attr("x", width / 2)
-    //     .attr("y", height + margin.bottom - 25)
-    //     .attr("text-anchor", "middle")
-    //     .text("Year")
-    //     .style("font-size", "18px")
-    //     .style("fill", "white");
-
-    // svg.append("text")
-    //     .attr("class", "y-axis-label")
-    //     .attr("x", -height / 2)
-    //     .attr("y", -margin.left + 50)
-    //     .attr("text-anchor", "middle")
-    //     .attr("transform", "rotate(-90)")
-    //     .text("Inflation Rate (%)")
-    //     .style("font-size", "18px")
-    //     .style("fill", "white");
-
     // Tooltip functions
     function showTooltip() {
         tooltip.transition().style("opacity", 1).duration(500);

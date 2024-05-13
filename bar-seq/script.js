@@ -29,14 +29,6 @@ const xAxis = svg
 // Add y-axis
 const yAxis = svg.append("g").attr("class", "y-axis");
 
-// Add x-axis label
-// svg.append("text")
-//   .attr("transform", `translate(${width / 2}, ${height +  margin.top / 2 + 50})`)
-//   .style("text-anchor", "middle")
-//   .style("font-size", "18px")
-//   .style("fill", "white")
-//   .text("Value (USD)");
-
 // Tooltip functions
 const tooltip = d3
   .select("body")
