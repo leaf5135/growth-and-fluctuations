@@ -71,7 +71,7 @@ Follow these steps to set up the project:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/andrewdiep1/growth-and-fluctuations.git
+   git clone https://github.com/leaf5135/growth-and-fluctuations.git
    cd growth-and-fluctuations
    ```
 
@@ -125,11 +125,3 @@ Graphs (in order):
 5. **Diverging Bar Chart**: Hover over bars for details. Rebuild shows the graph's transition.
 6. **Line Chart**: Hover over dots for details. Rebuild shows the graph's transition.
 7. **Scatterplot**: Hover over dots for details. Click toggle to change curve visibility. Use the dropdown menu to select timelapse speed. Rebuild shows the graph's transition in timelapse.
-
-## Contact Information
-
-For any further assistance or queries, please contact:
-
-- **Andrew Diep**
-- **Email**: adiep@dons.usfca.edu
-- **GitHub**: [andrewdiep1](https://github.com/andrewdiep1)
